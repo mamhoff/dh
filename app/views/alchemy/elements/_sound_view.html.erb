@@ -1,0 +1,10 @@
+<%- cache(element) do -%>
+  <%= element_view_for(element) do |el| -%>
+    <div class="ogg_file">
+      <%= el.render :ogg_file %>
+    </div>
+    <div class="mp3_file">
+      <%= el.render :mp3_file %>
+    </div>
+  <%- end -%>
+<%- end -%>

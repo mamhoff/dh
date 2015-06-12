@@ -2,18 +2,53 @@
 #
 # For further informations please see http://guides.alchemy-cms.com/create_elements.html
 
-- name: article
-  hint: true
-  unique: true
+# For the start page
+- name: picture
   contents:
-  - name: headline
-    type: EssenceText
-    default: :article_headline
-    hint: true
   - name: picture
     type: EssencePicture
-    hint: true
-  - name: text
+    validate:
+    - presence
+
+- name: vimeo_queen
+  unique: true
+  contents:
+  - name: vimeo_code
+    type: EssenceHtml
+    validate:
+    - presence
+
+- name: sound
+  contents:
+  - name: ogg_file
+    type: EssenceFile
+  - name: mp3_file
+    type: EssenceFile
+
+- name: image_slider
+  unique: true
+  picture_gallery: true
+
+- name: image_gallery
+  unique: true
+  picture_gallery: true
+
+- name: description
+  unique: true
+  contents:
+  - name: title
+    type: EssenceText
+  - name: year
+    type: EssenceDate
+  - name: media
+    type: EssenceText
+  - name: body
     type: EssenceRichtext
-    default: :article_text
-    hint: true
+
+- name: vimeo_gallery
+  unique: true
+  available_contents:
+  - name: vimeo_code
+    type: EssenceHtml
+    validate:
+    - presence

@@ -1,0 +1,16 @@
+<%- cache(element) do -%>
+  <%= element_view_for(element) do |el| -%>
+    <div class="title">
+      <%= el.render :title %>
+    </div>
+    <div class="year">
+      <%= el.render :year %>
+    </div>
+    <div class="media">
+      <%= el.render :media %>
+    </div>
+    <div class="body">
+      <%= el.render :body %>
+    </div>
+  <%- end -%>
+<%- end -%>

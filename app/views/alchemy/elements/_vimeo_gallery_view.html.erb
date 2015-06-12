@@ -1,0 +1,7 @@
+<%- cache(element) do -%>
+  <%= element_view_for(element) do |el| -%>
+    <%- element.contents.where(name: ['vimeo_code']).each do |content| -%>
+      <%= render_essence_view(content) %>
+    <%- end -%>
+  <%- end -%>
+<%- end -%>

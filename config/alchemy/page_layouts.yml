@@ -2,7 +2,27 @@
 #
 # For further informations please see http://guides.alchemy-cms.com/create_page_layouts.html
 
-- name: index
+- name: start
   unique: true
-  elements: [article]
-  autogenerate: [article]
+  elements:
+    - picture
+  autogenerate:
+    - picture
+
+- name: works
+  unique: true
+
+- name: work
+  unique: false
+  elements:
+  - vimeo_queen
+  - sound
+  - image_slider
+  - image_gallery
+  - description
+  - vimeo_gallery
+  autogerate:
+  - image_slider
+  - description
+  - image_gallery
+
