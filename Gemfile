@@ -29,7 +29,8 @@ gem 'spring',      group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'bootswatch-rails' # bootstrap including themes ;)
+gem 'bootstrap-sass'
+gem 'bootswatch-rails' # bootstrap themes ;)
 
 
 gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: "3.1-stable"
