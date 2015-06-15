@@ -9,6 +9,9 @@
   autogenerate:
     - picture
 
+- name: link
+  redirects_to_external: true
+
 - name: works
   unique: true
 
