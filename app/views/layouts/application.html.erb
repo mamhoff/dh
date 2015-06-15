@@ -8,7 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
-  <nav class="navbar"></nav>
+  <nav class="navbar">
+    <%= render_navigation({}, {class: 'navigation'}) %>
+  </nav>
 
   <div class="container">
     <%= yield %>
