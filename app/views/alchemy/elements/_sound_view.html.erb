@@ -1,4 +1,9 @@
 <%- cache(element) do -%>
+  <audio autoplay="autoplay" controls="controls">  
+    <source src="/attachment/1/download" />  
+    <source src="/attachment/2/download" />  
+  </audio>
+
   <%= element_view_for(element) do |el| -%>
     <div class="ogg_file">
       <%= el.render :ogg_file %>
@@ -6,5 +11,7 @@
     <div class="mp3_file">
       <%= el.render :mp3_file %>
     </div>
+
+    <% binding.pry %>
   <%- end -%>
 <%- end -%>

@@ -10,6 +10,7 @@
     validate:
     - presence
 
+# For the work pages
 - name: vimeo_queen
   unique: true
   contents:
@@ -50,5 +51,14 @@
   available_contents:
   - name: vimeo_code
     type: EssenceHtml
+    validate:
+    - presence
+
+# For the about page
+- name: about_text
+  unique: true
+  contents:
+  - name: body
+    type: EssenceRichtext
     validate:
     - presence

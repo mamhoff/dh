@@ -1,1 +1,17 @@
-<%= render_elements %>
+<main class="dh-works">
+
+  <%# binding.pry %>
+
+  <ul>
+    <% @page.children.published.each do |page| %>
+      <li>
+        <%= link_to page.name, "/#{page.urlname}",
+                    title: page.title %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%# Kann vermutlich weg %>
+  <%# render_elements %>
+
+</main>

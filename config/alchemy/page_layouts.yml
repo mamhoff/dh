@@ -9,22 +9,26 @@
   autogenerate:
     - picture
 
-- name: link
-  redirects_to_external: true
-
 - name: works
   unique: true
 
 - name: work
   unique: false
   elements:
-  - vimeo_queen
-  - sound
-  - image_slider
-  - image_gallery
-  - description
-  - vimeo_gallery
-  autogerate:
-  - image_slider
-  - description
-  - image_gallery
+    - vimeo_queen
+    - sound
+    - image_slider
+    - image_gallery
+    - description
+    - vimeo_gallery
+  autogenerate:
+    - image_slider
+    - description
+    - image_gallery
+
+- name: about
+  unique: true
+  elements:
+    - about_text
+  autogenerate:
+    - about_text
