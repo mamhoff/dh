@@ -1,16 +1,21 @@
 <%- cache(element) do -%>
-  <%= element_view_for(element) do |el| -%>
-    <div class="title">
-      <%= el.render :title %>
-    </div>
-    <div class="year">
-      <%= el.render :year %>
-    </div>
-    <div class="media">
-      <%= el.render :media %>
-    </div>
-    <div class="body">
-      <%= el.render :body %>
-    </div>
-  <%- end -%>
+
+  <%# Was brauchen wir hier noch? Zugriff auf die Essences bitte nicht
+      über Indices, sondern über Namen %>
+
+  <%# binding.pry %>
+
+  <h2><%= element.essences[0].body %></h2>
+
+  <% year = element.essences[1].date.year %>
+  <p><time datetime="<%= year %>"><%= year %></time></p>
+
+  <p><strong>Materials:</strong><br />
+    <%= element.essences[3].body %>
+  </p>
+
+  <section>
+    <%= render inline: element.essences[2].body %>
+  </section>
+
 <%- end -%>

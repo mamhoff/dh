@@ -2,7 +2,7 @@
   <audio controls="controls">
     <% element.essence_files.each do |essence_file| %>  
       <source src="<%= essence_file.attachment_url %>" />
-    <% end %>  
+    <% end %>
   </audio>
 
   <%# Ogg und Mp3-Dateien müssen beide vorhanden sein, so wie es jetzt
@@ -10,19 +10,10 @@
       die richtigen Dateien (in der richtigen Reihenfolge) sind? %>
   <p>
     Download
-    <%= link_to 'Ogg', element.essence_files[0].attachment_url %>
+    <%= link_to 'Ogg', element.essence_files[0].attachment_url,
+                title: 'Download work as an OGG file' %>
     or
-    <%= link_to 'Mp3', element.essence_files[1].attachment_url %>
+    <%= link_to 'Mp3', element.essence_files[1].attachment_url,
+                title: 'Download work as an MP3 file' %>
   </p>
-
-  <%# old stuff %>
-  <%= element_view_for(element) do |el| -%>
-    <div class="ogg_file">
-      <%= el.render :ogg_file %>
-    </div>
-    <div class="mp3_file">
-      <%= el.render :mp3_file %>
-    </div>
-  <%- end -%>
-
 <%- end -%>
