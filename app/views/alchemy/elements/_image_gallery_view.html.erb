@@ -4,10 +4,17 @@
 
   <%# binding.pry %>
 
-  <% element.contents.gallery_pictures.each do |picture| %>
-    <%# Plus Link / Lightbox or something like that %>
-    <%= render_essence_view(picture, image_size: '160x120') %>
-  <% end %>
+  <div class="row">
+    <% element.contents.gallery_pictures.each do |picture| %>
+      <%# Plus Link / Lightbox or something like that %>
+      <div class="col-xs-6 col-sm-4 col-md-2">
+        <a href="<%= picture.essence.picture_url %>" data-toggle="lightbox"
+          data-gallery="image-gallery">
+          <%= render_essence_view(picture, image_size: '200x200') %>
+        </a>
+      </div>
+    <% end %>
+  </div>
 
 
 <%- end -%>
