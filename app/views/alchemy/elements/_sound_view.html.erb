@@ -1,19 +1,33 @@
 <%- cache(element) do -%>
-  <audio controls="controls">
-    <% element.essence_files.each do |essence_file| %>  
-      <source src="<%= essence_file.attachment_url %>" />
-    <% end %>
-  </audio>
 
-  <%# Ogg und Mp3-Dateien müssen beide vorhanden sein, so wie es jetzt
-      programmiert ist. Außerdem: Wie sicherstellen, dass es tatsächlich
-      die richtigen Dateien (in der richtigen Reihenfolge) sind? %>
-  <p>
-    Download
-    <%= link_to 'Ogg', element.essence_files[0].attachment_url,
-                title: 'Download work as an OGG file' %>
-    or
-    <%= link_to 'Mp3', element.essence_files[1].attachment_url,
+  <% if element.essence_files.any? %>
+    <audio controls="controls">
+      <% element.essence_files.each do |essence_file| %>  
+        <source src="<%= essence_file.attachment_url %>" />
+      <% end %>
+    </audio>
+  <% end %>
+
+  <%# binding.pry %>
+
+  <section class="dh-sound-download">
+    <h3>Download:</h3>
+    <ul>
+      <% if element.content_by_name('ogg_file') %>
+        <li>
+          <%= link_to 'Ogg',
+                element.content_by_name('ogg_file').essence.attachment_url,
+                title: 'Download work as an OGG file' %>      
+        </li>
+      <% end %>
+      <% if element.content_by_name('mp3_file') %>
+        <li>
+          <%= link_to 'Mp3',
+                element.content_by_name('mp3_file').essence.attachment_url,
                 title: 'Download work as an MP3 file' %>
-  </p>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+
 <%- end -%>

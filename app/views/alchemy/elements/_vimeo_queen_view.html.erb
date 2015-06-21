@@ -1,9 +1,9 @@
 <%- cache(element) do -%>
 
-  <%# Test Vimeo %>
-
-
-  <%= element_view_for(element) do |el| -%>
-    <%= el.render :vimeo_code %>
-  <%- end -%>
+  <div class="dh-vimeo-queen-wrapper">
+    <%= element_view_for(element,
+      class: 'vimeo-queen embed-responsive embed-responsive-16by9') do |el| -%>
+      <%= el.render :vimeo_code %>
+    <%- end -%>
+  </div>
 <%- end -%>

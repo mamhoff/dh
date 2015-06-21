@@ -1,21 +1,16 @@
 <%- cache(element) do -%>
 
-  <%# Was brauchen wir hier noch? Zugriff auf die Essences bitte nicht
-      über Indices, sondern über Namen %>
+  <h2><%= element.ingredient('title') %></h2>
 
-  <%# binding.pry %>
-
-  <h2><%= element.essences[0].body %></h2>
-
-  <% year = element.essences[1].date.year %>
+  <% year = element.ingredient('year').year %>
   <p><time datetime="<%= year %>"><%= year %></time></p>
 
   <p><strong>Materials:</strong><br />
-    <%= element.essences[3].body %>
+    <%= element.ingredient('media') %>
   </p>
 
   <section>
-    <%= render inline: element.essences[2].body %>
+    <%= render inline: element.ingredient('body') %>
   </section>
 
 <%- end -%>
