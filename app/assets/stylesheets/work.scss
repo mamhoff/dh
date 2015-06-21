@@ -1,4 +1,5 @@
 .dh-work {
+  // For description element
   time {
     font-style: italic;
   }
@@ -16,5 +17,10 @@
     ul {
       padding: 0;
     }
+  }
+
+  .dh-image-gallery-image {
+    display: inline-block;
+    margin-bottom: 15px;
   }
 }

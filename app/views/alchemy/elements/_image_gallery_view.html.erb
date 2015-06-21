@@ -1,20 +1,20 @@
 <%- cache(element) do -%>
 
-  <%# Wir brauchen jetzt zum ersten Mal den Grid %>
-
   <%# binding.pry %>
 
-  <div class="row">
+  <%# TODO: Close-Button für Lightbox wird nicht gezeigt. %>
+
+  <div class="row-fluid">
     <% element.contents.gallery_pictures.each do |picture| %>
-      <%# Plus Link / Lightbox or something like that %>
-      <div class="col-xs-6 col-sm-4 col-md-2">
+      <div class="col-xs-4 col-md-2">
         <a href="<%= picture.essence.picture_url %>" data-toggle="lightbox"
           data-gallery="image-gallery">
-          <%= render_essence_view(picture, image_size: '200x200') %>
+          <%= render_essence_view(picture,
+                {image_size: '200x200', crop: true},
+                {class: 'dh-image-gallery-image'}) %>
         </a>
       </div>
     <% end %>
   </div>
-
 
 <%- end -%>

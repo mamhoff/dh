@@ -2,6 +2,8 @@
 
   <h2><%= element.ingredient('title') %></h2>
 
+  <%# TODO: Ist EssenceDate wirklich die richtige Essence für das Jahr?
+      Im Backend wird dafür ein DatePicker angezeigt. %>
   <% year = element.ingredient('year').year %>
   <p><time datetime="<%= year %>"><%= year %></time></p>
 
