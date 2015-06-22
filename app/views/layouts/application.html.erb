@@ -5,10 +5,29 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
-  <%= yield %>
-  <%= alchemy_preview_mode_code %>
-  <%= render "alchemy/menubar" %>
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-header">
+      </div>
+      <div id="navbar">
+        <ul class="nav dh-navbar-nav">
+          <li><%= link_to 'Start', '/start' %></li>
+          <% @root_page.children.visible.published.each do |page| %>
+            <li><%= link_to page.name, "/#{page.urlname}" %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <%= yield %>
+    <%= alchemy_preview_mode_code %>
+    <%= render "alchemy/menubar" %>
+  </div>
+
 </body>
 </html>

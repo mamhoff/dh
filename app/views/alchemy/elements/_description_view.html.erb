@@ -1,16 +1,18 @@
 <%- cache(element) do -%>
-  <%= element_view_for(element) do |el| -%>
-    <div class="title">
-      <%= el.render :title %>
-    </div>
-    <div class="year">
-      <%= el.render :year %>
-    </div>
-    <div class="media">
-      <%= el.render :media %>
-    </div>
-    <div class="body">
-      <%= el.render :body %>
-    </div>
-  <%- end -%>
+
+  <h2><%= element.ingredient('title') %></h2>
+
+  <%# TODO: Ist EssenceDate wirklich die richtige Essence für das Jahr?
+      Im Backend wird dafür ein DatePicker angezeigt. %>
+  <% year = element.ingredient('year').year %>
+  <p><time datetime="<%= year %>"><%= year %></time></p>
+
+  <p><strong>Materials:</strong><br />
+    <%= element.ingredient('media') %>
+  </p>
+
+  <section>
+    <%= render inline: element.ingredient('body') %>
+  </section>
+
 <%- end -%>

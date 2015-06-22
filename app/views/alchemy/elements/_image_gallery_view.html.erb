@@ -1,11 +1,20 @@
 <%- cache(element) do -%>
-  <%= element_view_for(element) do |el| -%>
-    <div class="image_gallery_images">
-      <%- element.contents.gallery_pictures.each do |image| -%>
-      <div class="image_gallery_image <%= image.essence.css_class %>">
-        <%= render_essence_view(image, image_size: '160x120') %>
+
+  <%# binding.pry %>
+
+  <%# TODO: Close-Button für Lightbox wird nicht gezeigt. %>
+
+  <div class="row-fluid">
+    <% element.contents.gallery_pictures.each do |picture| %>
+      <div class="col-xs-4 col-md-2">
+        <a href="<%= picture.essence.picture_url %>" data-toggle="lightbox"
+          data-gallery="image-gallery">
+          <%= render_essence_view(picture,
+                {image_size: '200x200', crop: true},
+                {class: 'dh-image-gallery-image'}) %>
+        </a>
       </div>
-      <%- end -%>
-    </div>
-  <%- end -%>
+    <% end %>
+  </div>
+
 <%- end -%>

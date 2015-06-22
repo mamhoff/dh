@@ -1,0 +1,26 @@
+.dh-work {
+  // For description element
+  time {
+    font-style: italic;
+  }
+
+  // Max width for Vimeo embed
+  .dh-vimeo-queen-wrapper {
+    max-width: 600px;
+  }
+
+  .dh-sound-download {
+    h3, ul, li {
+      display: inline;
+    }
+
+    ul {
+      padding: 0;
+    }
+  }
+
+  .dh-image-gallery-image {
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+}

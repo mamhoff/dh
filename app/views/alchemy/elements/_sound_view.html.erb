@@ -1,10 +1,33 @@
 <%- cache(element) do -%>
-  <%= element_view_for(element) do |el| -%>
-    <div class="ogg_file">
-      <%= el.render :ogg_file %>
-    </div>
-    <div class="mp3_file">
-      <%= el.render :mp3_file %>
-    </div>
-  <%- end -%>
+
+  <% if element.essence_files.any? %>
+    <audio controls="controls">
+      <% element.essence_files.each do |essence_file| %>  
+        <source src="<%= essence_file.attachment_url %>" />
+      <% end %>
+    </audio>
+  <% end %>
+
+  <%# binding.pry %>
+
+  <section class="dh-sound-download">
+    <h3>Download:</h3>
+    <ul>
+      <% if element.content_by_name('ogg_file') %>
+        <li>
+          <%= link_to 'Ogg',
+                element.content_by_name('ogg_file').essence.attachment_url,
+                title: 'Download work as an OGG file' %>      
+        </li>
+      <% end %>
+      <% if element.content_by_name('mp3_file') %>
+        <li>
+          <%= link_to 'Mp3',
+                element.content_by_name('mp3_file').essence.attachment_url,
+                title: 'Download work as an MP3 file' %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+
 <%- end -%>
