@@ -4,7 +4,6 @@
     font-style: italic;
   }
 
-  // Max width for Vimeo embed
   .dh-vimeo-queen-wrapper {
     max-width: 600px;
   }
@@ -24,14 +23,7 @@
     margin-bottom: 15px;
   }
 
-  // Bootstrap carousel
   .dh-slider {
     max-width: 600px;
-
-    .carousel-inner {
-      img {
-        margin: 0 auto;
-      }
-    }
   }
 }
