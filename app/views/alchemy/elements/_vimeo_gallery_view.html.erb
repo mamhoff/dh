@@ -1,7 +1,26 @@
 <%- cache(element) do -%>
-  <%= element_view_for(element) do |el| -%>
+
+  <%= element_view_for(element, class: 'row-fluid') do |el| -%>
+
     <%- element.contents.where(name: ['vimeo_code']).each do |content| -%>
-      <%= render_essence_view(content) %>
+
+      <% regex = /src=\"(.*?)\"/ %>
+      <% source = content.ingredient.match(regex)[1].to_s %>
+
+      <%# binding.pry %>
+
+      <%# What's missing? Load video thumbnail from server per JavaScript
+      and replace the image tags below. Maybe render some sort of "play triangle"
+      onto the image. Thumbnails and videos are 16x9, hopefully. %>
+
+      <div class="col-xs-4 col-md-2">
+        <a href="<%= source %>" data-toggle="lightbox" data-gallery="vimeo-gallery">
+          <%= image_tag 'image.jpg', class: 'dh-image-gallery-image' %>
+        </a>
+      </div>    
+
     <%- end -%>
+
   <%- end -%>
+
 <%- end -%>
