@@ -26,4 +26,24 @@
   .dh-slider {
     max-width: 600px;
   }
+
+  .dh-vimeo-gallery-wrapper {
+    position: relative;
+
+    // Play icon
+    .glyphicon {
+      // Show via JavaScript
+      display: none;
+
+      font-size: 30px;
+      color: #fff;
+      text-shadow: 2px 2px #666;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -15px;
+      margin-left: -15px;
+    }
+  }
 }
