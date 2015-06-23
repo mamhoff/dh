@@ -23,4 +23,15 @@
     display: inline-block;
     margin-bottom: 15px;
   }
+
+  // Bootstrap carousel
+  .dh-slider {
+    max-width: 600px;
+
+    .carousel-inner {
+      img {
+        margin: 0 auto;
+      }
+    }
+  }
 }
