@@ -1,5 +1,7 @@
 <%- cache(element) do -%>
 
+  <%# Wir gehen davon aus, dass die Videos im Seitenverhältnis von 16:9 sind %>
+
   <div class="dh-vimeo-queen-wrapper">
     <%= element_view_for(element,
       class: 'vimeo-queen embed-responsive embed-responsive-16by9') do |el| -%>

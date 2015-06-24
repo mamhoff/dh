@@ -1,6 +1,7 @@
 <main class="dh-works">
 
-  <%# binding.pry %>
+  <%= render_elements %>
+
 
   <ul>
     <% @page.children.published.each do |page| %>
@@ -10,8 +11,5 @@
       </li>
     <% end %>
   </ul>
-
-  <%# Kann vermutlich weg %>
-  <%# render_elements %>
 
 </main>

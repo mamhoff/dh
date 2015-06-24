@@ -1,11 +1,32 @@
 <%- cache(element) do -%>
-  <%= element_view_for(element) do |el| -%>
-    <div class="image_slider_images">
-      <%- element.contents.gallery_pictures.each do |image| -%>
-      <div class="image_slider_image <%= image.essence.css_class %>">
-        <%= render_essence_view(image, image_size: '160x120') %>
-      </div>
-      <%- end -%>
+
+  <div id="dh-slider" class="dh-slider carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#dh-slider" data-slide-to="0" class="active"></li>
+      <li data-target="#dh-slider" data-slide-to="1"></li>
+      <li data-target="#dh-slider" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <% element.contents.gallery_pictures.each_with_index do |picture, index| %>
+        <% active_class = index == 0 ? " active" : "" %>
+        <div class="item<%= active_class %>">
+          <%= render_essence_view(picture, {image_size: '600x400'}) %>
+        </div>
+      <% end %>
     </div>
-  <%- end -%>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#dh-slider" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#dh-slider" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
 <%- end -%>
