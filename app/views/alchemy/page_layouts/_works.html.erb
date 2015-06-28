@@ -2,14 +2,27 @@
 
   <%= render_elements %>
 
+  <% pages = @page.children.published.map do |page| %>
+    <% description = page.find_elements(options: {only: 'description'}).to_a[0]
+       year = description.content_by_name('year')
+       year = year.essence.date.year if year
+      { title: page.title,
+        urlname: page.urlname,
+        year: year } %>
+  <% end %>
+
+  <%# Sort by date, not by year (more data in date) %>
+  <%# Use figure and figcaption here %>
+  <% sorted_pages = pages.sort_by { |k| k[:year] ? k[:year] : 0 } %>
 
   <ul>
-    <% @page.children.published.each do |page| %>
+    <% sorted_pages.each do |page| %>
       <li>
-        <%= link_to page.name, "/#{page.urlname}",
-                    title: page.title %>
+        <%= page[:year] %>
+        <%= link_to page[:title], "/#{page[:urlname]}" %>
       </li>
     <% end %>
+
   </ul>
 
 </main>

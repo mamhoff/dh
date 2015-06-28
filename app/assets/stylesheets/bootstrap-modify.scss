@@ -1,3 +1,11 @@
+h1 {
+  margin-bottom: 21px;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
 .modal-dialog {
   .close {
     color: #000;
@@ -10,6 +18,10 @@
   }
 }
 
-.carousel-control.left, .carousel-control.right {
-  background-image: none;
+// Slider arrows
+.carousel-control {
+  background-image: none !important;
+  text-shadow: 0 0 1px black;
 }
+
+@media (min-width: 768px) { .container { max-width: 750px; } }

@@ -3,9 +3,11 @@
   <div id="dh-slider" class="dh-slider carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li data-target="#dh-slider" data-slide-to="0" class="active"></li>
-      <li data-target="#dh-slider" data-slide-to="1"></li>
-      <li data-target="#dh-slider" data-slide-to="2"></li>
+      <% element.contents.gallery_pictures.size.times do |index| %>
+        <% active_class = index == 0 ? "active" : "" %>
+        <li data-target="#dh-slider" data-slide-to="<%= index %>"
+          class="<%= active_class %>"></li>
+      <% end %>
     </ol>
 
     <!-- Wrapper for slides -->

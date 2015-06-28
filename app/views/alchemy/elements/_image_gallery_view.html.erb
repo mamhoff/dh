@@ -1,12 +1,12 @@
 <%- cache(element) do -%>
 
-  <div class="row-fluid">
+  <div class="row">
     <% element.contents.gallery_pictures.each do |picture| %>
-      <div class="col-xs-4 col-md-2">
+      <div class="col-xs-4 col-sm-3">
         <a href="<%= picture.essence.picture_url %>" data-toggle="lightbox"
           data-gallery="image-gallery">
           <%= render_essence_view(picture,
-                {image_size: '200x200', crop: true},
+                {image_size: '250x250', crop: true},
                 {class: 'dh-image-gallery-image'}) %>
         </a>
       </div>
