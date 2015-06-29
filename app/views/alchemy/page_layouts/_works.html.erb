@@ -2,6 +2,9 @@
 
   <%= render_elements %>
 
+  <%= a=Alchemy::Page.joins(:essence_dates).includes(:essence_dates).order('alchemy_essence_dates.date DESC') %>
+
+  <%# Paginierung %>
 
   <% pages = @page.children.published.map do |page| %>
     <% description = page.find_elements(only: 'description').first
