@@ -2,32 +2,51 @@
 
   <%= render_elements %>
 
-  <%= a=Alchemy::Page.joins(:essence_dates).includes(:essence_dates).order('alchemy_essence_dates.date DESC') %>
+  <%
+    sorted_pages = Alchemy::Page.joins(:essence_dates).includes(:essence_dates).order('alchemy_essence_dates.date DESC')
 
-  <%# Paginierung %>
+    new_pages = sorted_pages.map do |page|
+      { id: page.id, date: page.essence_dates[0].date }
+    end
 
-  <% pages = @page.children.published.map do |page| %>
-    <% description = page.find_elements(only: 'description').first
-       year = description.content_by_name('year') if description
-       year = year.essence.date.year if year
-      { title: page.title,
-        urlname: page.urlname,
-        year: year } %>
+
+    big_structure = Hash.new
+    sorted_pages.each do |page|
+      date = page.essence_dates[0].date
+      year = date.year if date
+      key = year ? year.to_s : 'Unknown year'
+      unless big_structure.has_key? key
+        big_structure[key] = Array.new
+      end
+    end
+
+    sorted_pages.each do |page|
+      date = page.essence_dates[0].date
+      year = date.year if date
+      key = year ? year.to_s : 'Unknown year'
+      big_structure[key].push(page)
+    end
+
+    new_structure = HashWithIndifferentAccess.new big_structure
+  %>
+
+  <% new_structure.each do |key, value| %>
+    <section class="year">
+      <h2><%= key %></h2>
+      <div class="row">
+        <% value.each do |page| %>
+          <a href="<%= "/#{page.urlname}" %>">
+            <figure class="col-sm-3">
+              <img src="">
+              <figcaption><%= page.title %></figcaption>
+            </figure>
+          </a>
+        <% end %>
+      </div>
+    </section>
   <% end %>
 
 
-  <%# Sort by date, not by year (more data in date) %>
-  <%# Use figure and figcaption here %>
-  <% sorted_pages = pages.sort_by { |k| k[:year] ? k[:year] : 0 } %>
-
-  <ul>
-    <% sorted_pages.each do |page| %>
-      <li>
-        <%= page[:year] %>
-        <%= link_to page[:title], "/#{page[:urlname]}" %>
-      </li>
-    <% end %>
-
-  </ul>
+  <%# Paginierung!!! %>
 
 </main>
