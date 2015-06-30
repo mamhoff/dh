@@ -3,7 +3,7 @@
   <%= render_elements %>
 
   <%
-    sorted_pages = Alchemy::Page.joins(:essence_dates).includes(:essence_dates).order('alchemy_essence_dates.date DESC')
+    sorted_pages = @page.children.joins(:essence_dates).includes(:essence_dates).reorder('alchemy_essence_dates.date DESC')
 
     new_pages = sorted_pages.map do |page|
       { id: page.id, date: page.essence_dates[0].date }

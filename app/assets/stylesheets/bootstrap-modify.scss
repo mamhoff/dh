@@ -6,12 +6,6 @@ h1 {
   margin-bottom: 0;
 }
 
-.modal-dialog {
-  .close {
-    color: #000;
-  }
-}
-
 .carousel-inner {
   img {
     margin: 0 auto;
@@ -28,5 +22,8 @@ h1 {
 
 
 // Ekko lightbox stuff
-
-
+.ekko-lightbox-nav-overlay {
+  a {
+    text-shadow: 0 0 1px black !important;
+  }
+}

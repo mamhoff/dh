@@ -1,3 +1,5 @@
+@import 'variables';
+
 .dh-work {
   // For description element
   time {
@@ -5,7 +7,7 @@
   }
 
   .dh-vimeo-queen-wrapper {
-    max-width: 600px;
+    max-width: $dh-screen-width;
   }
 
   .dh-sound-download {
