@@ -15,7 +15,10 @@
       <% element.contents.gallery_pictures.each_with_index do |picture, index| %>
         <% active_class = index == 0 ? " active" : "" %>
         <div class="item<%= active_class %>">
-          <%= render_essence_view(picture, {image_size: '600x400'}) %>
+          <a href="<%= picture.essence.picture_url %>" data-toggle="lightbox"
+            data-always_show_close="false">
+            <%= render_essence_view(picture, {image_size: '600x400'}) %>
+          </a>
         </div>
       <% end %>
     </div>
