@@ -9,14 +9,13 @@
       { id: page.id, date: page.essence_dates[0].date }
     end
 
-
-    big_structure = Hash.new
+    pages_hash = HashWithIndifferentAccess.new
     sorted_pages.each do |page|
       date = page.essence_dates[0].date
       year = date.year if date
       key = year ? year.to_s : 'Unknown year'
-      unless big_structure.has_key? key
-        big_structure[key] = Array.new
+      unless pages_hash.has_key? key
+        pages_hash[key] = Array.new
       end
     end
 
@@ -24,13 +23,11 @@
       date = page.essence_dates[0].date
       year = date.year if date
       key = year ? year.to_s : 'Unknown year'
-      big_structure[key].push(page)
+      pages_hash[key].push(page)
     end
-
-    new_structure = HashWithIndifferentAccess.new big_structure
   %>
 
-  <% new_structure.each do |key, value| %>
+  <% pages_hash.each do |key, value| %>
     <section class="year">
       <h2><%= key %></h2>
       <div class="row">
