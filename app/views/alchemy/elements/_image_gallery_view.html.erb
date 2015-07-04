@@ -1,16 +1,8 @@
 <%- cache(element) do -%>
 
   <section class="row dh-image-gallery">
-    <% element.contents.gallery_pictures.each do |picture| %>
-      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-        <a href="<%= picture.essence.picture_url %>" data-toggle="lightbox"
-          data-gallery="image-gallery">
-          <%= render_essence_view(picture,
-                {image_size: '250x250', crop: true},
-                {class: 'dh-image-gallery-image'}) %>
-        </a>
-      </div>
-    <% end %>
+    <%= render(partial: '/shared/image_gallery_element',
+               collection: element.contents.gallery_pictures) %>
   </section>
 
 <%- end -%>

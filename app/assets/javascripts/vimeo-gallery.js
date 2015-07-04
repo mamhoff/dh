@@ -1,7 +1,7 @@
 // Fetch Vimeo thumbnails via the JSON api
 
 $(document).ready(function() {
-  var $images = $('img.dh-vimeo-gallery-image');
+  var $images = $('img', '.dh-vimeo-gallery-element');
 
   $images.each(function (index, image) {
     var $image = $(image), api_url, id;
