@@ -8,8 +8,9 @@
       <div class="row">
         <% value.each do |page| %>
           <a href="<%= "/#{page.urlname}" %>">
-            <figure class="col-sm-3">
-              <img src="">
+            <figure class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <%= render_page_thumbnail(page,
+                class: 'dh-works-page-thumbnail') %>
               <figcaption><%= page.title %></figcaption>
             </figure>
           </a>
@@ -18,7 +19,6 @@
     </section>
   <% end %>
 
-
-  <%# Paginierung!!! %>
+  <%# TODO: Pagination, if necessary %>
 
 </main>
