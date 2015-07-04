@@ -1,16 +1,19 @@
 <%- cache(element) do -%>
+  <section class="dh-description">
 
-  <h2><%= element.ingredient('title') %></h2>
+    <h2><%= element.ingredient('title') %></h2>
 
-  <% year = element.ingredient('year').year %>
-  <p><time datetime="<%= year %>"><%= year %></time></p>
+    <% year = element.ingredient('year').year %>
+    <p><time datetime="<%= year %>"><%= year %></time></p>
 
-  <p><strong>Materials:</strong><br />
-    <%= element.ingredient('media') %>
-  </p>
+    <p><strong>Materials:</strong><br />
+      <%= element.ingredient('media') %>
+    </p>
 
-  <section>
-    <%= render inline: element.ingredient('body') %>
+    <section>
+      <%= render inline: element.ingredient('body') %>
+    </section>
+
   </section>
 
 <%- end -%>

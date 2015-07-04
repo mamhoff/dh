@@ -1,26 +1,21 @@
 <%- cache(element) do -%>
 
-  <%= element_view_for(element, id: 'dh-vimeo-gallery', class: 'row') do |el| -%>
+  <%= element_view_for(element, tag: 'section',
+                                id: 'dh-vimeo-gallery',
+                                class: 'row') do |el| -%>
 
     <%- element.contents.where(name: ['vimeo_code']).each do |content| -%>
-
-      <% regex_url = /src=\"(.*?)\"/ %>
-      <% source = content.ingredient.match(regex_url)[1].to_s %>
-      <% regex_id = /video\/(\d+)$/ %>
-      <% id = source.match(regex_id)[1].to_s %>
-
       <%# Thumbnails are loaded via JavaScript, replacing the hourglass image.
           Thumbnails are 4x3, hopefully. %>
-
       <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 dh-vimeo-gallery-wrapper">
-        <a href="<%= source %>" data-toggle="lightbox" data-gallery="vimeo-gallery">
-          <%= image_tag 'hourglass.png', data: { id: id }, class: 'dh-vimeo-gallery-image' %>
+        <%= link_to(extract_vimeo_source(content.ingredient),
+          data: { toggle: 'lightbox', gallery: 'vimeo-gallery' }) do %>
+          <%= image_tag('hourglass.png', class: 'dh-vimeo-gallery-image',
+            data: { id: extract_vimeo_id(content.ingredient) }) %>
           <span class="glyphicon glyphicon-play-circle"></span>
-        </a>
+        <% end %>
       </div>
 
     <%- end -%>
-
   <%- end -%>
-
 <%- end -%>
