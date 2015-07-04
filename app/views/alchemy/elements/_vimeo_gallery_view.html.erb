@@ -4,18 +4,8 @@
                                 id: 'dh-vimeo-gallery',
                                 class: 'row') do |el| -%>
 
-    <%- element.contents.where(name: ['vimeo_code']).each do |content| -%>
-      <%# Thumbnails are loaded via JavaScript, replacing the hourglass image.
-          Thumbnails are 4x3, hopefully. %>
-      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 dh-vimeo-gallery-wrapper">
-        <%= link_to(extract_vimeo_source(content.ingredient),
-          data: { toggle: 'lightbox', gallery: 'vimeo-gallery' }) do %>
-          <%= image_tag('hourglass.png', class: 'dh-vimeo-gallery-image',
-            data: { id: extract_vimeo_id(content.ingredient) }) %>
-          <span class="glyphicon glyphicon-play-circle"></span>
-        <% end %>
-      </div>
+    <%= render(partial: '/shared/vimeo_gallery_element',
+               collection: element.contents.where(name: ['vimeo_code'])) %>
 
-    <%- end -%>
   <%- end -%>
 <%- end -%>
