@@ -1,7 +1,7 @@
 <div class="item<%= image_slider_element_counter == 0 ? " active" : "" %>">
-  <%= link_to(render_essence_view(image_slider_element,
-                                  { image_size: '600x400' }),
-              image_slider_element.essence.picture_url,
-              data: { toggle: 'lightbox', always_show_close: 'false' })
-  %>
+  <%# Cannot use link_to helper because data attribute won't work %>
+  <a href="<%= image_slider_element.essence.picture_url %>"
+    data-toggle="lightbox" data-always_show_close="false">
+    <%= render_essence_view(image_slider_element, { image_size: '600x400' }) %>
+  </a>
 </div>
