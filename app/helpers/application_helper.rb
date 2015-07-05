@@ -46,7 +46,7 @@ module ApplicationHelper
                             crop: options[:crop] },
                           { class: options[:class] })
     else
-      content_tag(:p, 'No image found')
+      image_tag('question_mark.png', alt: 'No preview found')
     end
   end
 

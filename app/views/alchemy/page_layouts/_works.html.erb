@@ -7,13 +7,13 @@
       <h2><%= key %></h2>
       <div class="row">
         <% value.each do |page| %>
-          <a href="<%= "/#{page.urlname}" %>">
-            <figure class="col-xs-6 col-sm-4 col-md-3 ">
+          <figure class="col-xs-6 col-sm-4 col-md-3 ">
+            <a href="<%= "/#{page.urlname}" %>">
               <%= render_page_thumbnail(page,
                 class: 'dh-works-page-thumbnail') %>
               <figcaption><%= page.title %></figcaption>
-            </figure>
-          </a>
+            </a>
+          </figure>
         <% end %>
       </div>
     </section>
