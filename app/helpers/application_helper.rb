@@ -6,7 +6,7 @@ module ApplicationHelper
   def years_with_pages
     sorted_pages = @page.children
       .joins(:essence_dates)
-      .includes(:essence_dates)
+      .includes(:essence_dates, elements: [:contents])
       .reorder('alchemy_essence_dates.date DESC')
 
     pages_hash = HashWithIndifferentAccess.new
@@ -49,7 +49,6 @@ module ApplicationHelper
       content_tag(:p, 'No image found')
     end
   end
-
 
 
   ### Work pages
