@@ -6,6 +6,11 @@ h1 {
   margin-bottom: 0;
 }
 
+.container {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 .carousel-inner {
   img {
     margin: 0 auto;
@@ -17,9 +22,6 @@ h1 {
   background-image: none !important;
   text-shadow: 0 0 1px black;
 }
-
-//@media (min-width: 768px) { .container { max-width: 750px; } }
-
 
 // Ekko lightbox stuff
 .ekko-lightbox-nav-overlay {
