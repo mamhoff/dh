@@ -20,21 +20,14 @@ module ApplicationHelper
 
   # Render page thumbnail URL
   # Look for an image on the page that we can use
-  def render_page_thumbnail (page, options = {})
-    options = {
-      class: '',
-      image_size: '250x250',
-      crop: true
-    }.merge(options)
-
+  def render_page_thumbnail (page)
     image_slider = page.find_elements(only: ['image_slider',
       'image_gallery']).first
 
     if image_slider
       render_essence_view(image_slider.contents.gallery_pictures.first,
-                          { image_size: options[:image_size],
-                            crop: options[:crop] },
-                          { class: options[:class] })
+                          { image_size: '250x250', crop: true },
+                          { class: 'dh-works-page-thumbnail' })
     else
       image_tag('question_mark.png', alt: 'No preview found')
     end
