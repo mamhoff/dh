@@ -10,7 +10,28 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require ekko-lightbox
- *= require_tree .
- *= require_self
  */
+
+//Import bootstrap-sprockets
+@import "bootstrap-sprockets";
+
+// Import yeti variables
+@import "yeti_variables";
+
+// Then bootstrap itself
+@import "bootstrap";
+
+// And finally bootswatch style itself
+@import "bootswatch/yeti/bootswatch";
+
+@import "bootstrap-modify.scss";
+
+// Bootstrap Lightbox plugin
+@import "ekko-lightbox";
+
+// Whatever application styles you have go last
+@import "work";
+@import "works";
+@import "navbar";
+@import "shared";
+@import "start";

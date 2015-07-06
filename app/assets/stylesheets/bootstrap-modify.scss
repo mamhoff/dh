@@ -1,7 +1,14 @@
-.modal-dialog {
-  .close {
-    color: #000;
-  }
+h1 {
+  margin-bottom: 21px;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.container {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .carousel-inner {
@@ -10,6 +17,15 @@
   }
 }
 
-.carousel-control.left, .carousel-control.right {
-  background-image: none;
+// Slider arrows
+.carousel-control {
+  background-image: none !important;
+  text-shadow: 0 0 1px black;
+}
+
+// Ekko lightbox stuff
+.ekko-lightbox-nav-overlay {
+  a {
+    text-shadow: 0 0 1px black !important;
+  }
 }

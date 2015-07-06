@@ -1,5 +1,5 @@
 <%- cache(element) do -%>
-  <%= element_view_for(element) do |el| -%>
+  <%= element_view_for(element, tag: 'section', class: 'dh-about-text') do |el| -%>
     <%= el.render :body %>
   <%- end -%>
 <%- end -%>

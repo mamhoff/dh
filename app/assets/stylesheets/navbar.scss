@@ -1,10 +1,13 @@
 .dh-navbar-nav {
-  float: left;
+  display: flex;
+  //float: left;
   margin: 0;
 
   li {
-    float: left;
-    
+    //float: left;
+    flex-grow: 1;
+    text-align: center;
+
     a {
       padding: 15px;
     }

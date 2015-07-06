@@ -1,11 +1,13 @@
+@import 'variables';
+
 .dh-work {
   // For description element
   time {
     font-style: italic;
   }
 
-  .dh-vimeo-queen-wrapper {
-    max-width: 600px;
+  .dh-vimeo-queen {
+    max-width: $dh-screen-width;
   }
 
   .dh-sound-download {
@@ -24,10 +26,10 @@
   }
 
   .dh-slider {
-    max-width: 600px;
+    max-width: 100%;
   }
 
-  .dh-vimeo-gallery-wrapper {
+  .dh-vimeo-gallery-element {
     position: relative;
 
     // Play icon
