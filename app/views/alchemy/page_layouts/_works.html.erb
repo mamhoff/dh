@@ -2,23 +2,13 @@
 
   <%= render_elements %>
 
-  <% years_with_pages.each do |key, value| %>
+  <% get_years.each do |year| %>
     <section class="year">
-      <h2><%= key %></h2>
+      <h2><%= year %></h2>
       <div class="row">
-        <% value.each do |page| %>
-          <figure class="col-xs-6 col-sm-4 col-md-3 ">
-            <a href="<%= "/#{page.urlname}" %>">
-              <%= render_page_thumbnail(page,
-                class: 'dh-works-page-thumbnail') %>
-              <figcaption><%= page.title %></figcaption>
-            </a>
-          </figure>
-        <% end %>
+        <%= render(partial: '/shared/page', collection: get_pages_for(year)) %>
       </div>
     </section>
   <% end %>
-
-  <%# TODO: Pagination, if necessary %>
 
 </main>

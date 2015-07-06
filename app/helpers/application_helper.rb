@@ -2,31 +2,20 @@ module ApplicationHelper
 
   ### Works page
 
-  # Get pages in a hash sorted by year
-  def years_with_pages
-    sorted_pages = @page.children
+  # Get all years in an array, in descending order
+  def get_years
+    Alchemy::EssenceDate.order(date: :desc).pluck(:date)
+      .compact.map(&:year).uniq
+  end
+
+  # All pages with data within a year
+  def get_pages_for (year)
+    Alchemy::Page
       .joins(:essence_dates)
       .includes(:essence_dates, elements: [:contents])
       .reorder('alchemy_essence_dates.date DESC')
-
-    pages_hash = HashWithIndifferentAccess.new
-    sorted_pages.each do |page|
-      date = page.essence_dates[0].date
-      year = date.year if date
-      key = year ? year.to_s : 'Unknown year'
-      unless pages_hash.has_key? key
-        pages_hash[key] = Array.new
-      end
-    end
-
-    sorted_pages.each do |page|
-      date = page.essence_dates[0].date
-      year = date.year if date
-      key = year ? year.to_s : 'Unknown year'
-      pages_hash[key].push(page)
-    end
-
-    pages_hash
+      .where('alchemy_essence_dates.date >= ? and alchemy_essence_dates.date <= ?',
+        "#{year}-01-01", "#{year}-12-31")
   end
 
   # Render page thumbnail URL
@@ -38,7 +27,8 @@ module ApplicationHelper
       crop: true
     }.merge(options)
 
-    image_slider = page.find_elements(only: 'image_slider').first
+    image_slider = page.find_elements(only: ['image_slider',
+      'image_gallery']).first
 
     if image_slider
       render_essence_view(image_slider.contents.gallery_pictures.first,
