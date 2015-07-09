@@ -3,7 +3,7 @@
 <div class="dh-gallery-item dh-vimeo-gallery-element col-xs-6 col-sm-4
   col-md-3">
   <%= link_to(extract_vimeo_source(vimeo_gallery_element.ingredient),
-    data: { toggle: 'lightbox', gallery: 'vimeo-gallery' }) do %>
+    data: { toggle: 'lightbox' }) do %>
     <%= image_tag('hourglass.png',
       data: { id: extract_vimeo_id(vimeo_gallery_element.ingredient) }) %>
     <span class="glyphicon glyphicon-play-circle"></span>

@@ -2,7 +2,8 @@
 
   <article class="row dh-element dh-image-gallery">
     <%= render(partial: '/shared/image_gallery_element',
-               collection: element.contents.gallery_pictures) %>
+               collection: element.contents.gallery_pictures,
+               locals: { gallery_id: element.position }) %>
   </article>
 
 <%- end -%>
