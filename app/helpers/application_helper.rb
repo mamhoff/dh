@@ -8,8 +8,8 @@ module ApplicationHelper
       .compact.map(&:year).uniq
   end
 
-  # All pages with data within a year
-  def get_pages_for (year)
+  # All works with data within a year
+  def get_works_for (year)
     Alchemy::Page
       .joins(:essence_dates)
       .includes(:essence_dates, elements: [:contents])
@@ -18,9 +18,9 @@ module ApplicationHelper
         "#{year}-01-01", "#{year}-12-31")
   end
 
-  # Render page thumbnail URL
-  # Look for an image on the page that we can use
-  def render_page_thumbnail (page)
+  # Render thumbnail URL for work page
+  # Look for an image on the work page that we can use
+  def render_work_thumbnail (page)
     image_slider = page.find_elements(only: ['image_slider',
       'image_gallery']).first
 

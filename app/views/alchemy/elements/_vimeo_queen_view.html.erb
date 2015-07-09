@@ -2,7 +2,7 @@
 
   <%# Wir gehen davon aus, dass die Videos im Seitenverhältnis von 16:9 sind %>
 
-  <section class="dh-vimeo-queen">
+  <section class="dh-section dh-vimeo-queen">
     <%= element_view_for(element,
       class: 'vimeo-queen-view embed-responsive embed-responsive-16by9') do |el| -%>
       <%= el.render :vimeo_code %>
