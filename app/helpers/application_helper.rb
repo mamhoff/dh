@@ -26,7 +26,7 @@ module ApplicationHelper
 
     if image_slider
       render_essence_view(image_slider.contents.gallery_pictures.first,
-                          { image_size: '250x250', crop: true },
+                          { image_size: '170x170', crop: true },
                           { class: 'dh-works-page-thumbnail' })
     else
       image_tag('question_mark.png', alt: 'No preview found')
