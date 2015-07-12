@@ -4,13 +4,16 @@ module ApplicationHelper
 
   # Get all years in an array, in descending order
   def get_years
-    Alchemy::EssenceDate.order(date: :desc).pluck(:date)
-      .compact.map(&:year).uniq
+    Alchemy::Page.published
+    .joins(:essence_dates)
+    .includes(:essence_dates, elements: [:contents])
+    .reorder('alchemy_essence_dates.date DESC')
+    .map { |page| page.contents.where(name: "year").first.try(:ingredient).try(:year) }.uniq
   end
 
   # All works with data within a year
   def get_works_for (year)
-    Alchemy::Page
+    Alchemy::Page.published
       .joins(:essence_dates)
       .includes(:essence_dates, elements: [:contents])
       .reorder('alchemy_essence_dates.date DESC')
