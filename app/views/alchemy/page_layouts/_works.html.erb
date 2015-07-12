@@ -3,10 +3,10 @@
   <%= render_elements %>
 
   <% get_years.each do |year| %>
-    <section class="year">
+    <section class="dh-works-year">
       <h2><%= year %></h2>
       <div class="row">
-        <%= render(partial: '/shared/page', collection: get_pages_for(year)) %>
+        <%= render(partial: '/shared/work', collection: get_works_for(year)) %>
       </div>
     </section>
   <% end %>

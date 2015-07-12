@@ -1,14 +1,5 @@
-h1 {
-  margin-bottom: 21px;
-}
-
 .navbar {
   margin-bottom: 0;
-}
-
-.container {
-  margin-top: 15px;
-  margin-bottom: 15px;
 }
 
 .carousel-inner {
@@ -28,4 +19,19 @@ h1 {
   a {
     text-shadow: 0 0 1px black !important;
   }
+}
+
+// Headings
+// We assume that only the first 3 levels of headings are used.
+h1 {
+  margin-bottom: 21px;
+}
+
+h2 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-weight: bold;
 }

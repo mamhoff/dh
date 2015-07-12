@@ -1,8 +1,7 @@
 <%- cache(element) do -%>
 
-  <%= element_view_for(element, tag: 'section',
-                                id: 'dh-vimeo-gallery',
-                                class: 'row') do |el| -%>
+  <%= element_view_for(element, tag: 'article', id: 'dh-vimeo-gallery',
+    class: 'row dh-element dh-vimeo-gallery') do |el| -%>
 
     <%= render(partial: '/shared/vimeo_gallery_element',
                collection: element.contents.where(name: ['vimeo_code'])) %>

@@ -1,31 +1,31 @@
 <%- cache(element) do -%>
 
-  <% if element.essence_files.any? %>
-    <audio controls="controls">
-      <% element.essence_files.each do |essence_file| %>  
-        <source src="<%= essence_file.attachment_url %>" />
-      <% end %>
-    </audio>
-  <% end %>
+  <article class="dh-element dh-sound">
 
-  <section class="dh-sound-download">
-    <h3>Download:</h3>
-    <ul>
+    <% if element.essence_files.any? %>
+      <audio controls="controls">
+        <% element.essence_files.each do |essence_file| %>
+          <source src="<%= essence_file.attachment_url %>" />
+        <% end %>
+      </audio>
+    <% end %>
+
+    <p>
+      Download:
+
       <% if element.has_ingredient?('ogg_file') %>
-        <li>
-          <%= link_to 'Ogg',
-                element.content_by_name('ogg_file').essence.attachment_url,
-                title: 'Download work as an OGG file' %>      
-        </li>
+        <%= link_to 'Ogg',
+              element.content_by_name('ogg_file').essence.attachment_url,
+              title: 'Download work as an OGG file' %>
       <% end %>
+
       <% if element.has_ingredient?('mp3_file') %>
-        <li>
-          <%= link_to 'Mp3',
-                element.content_by_name('mp3_file').essence.attachment_url,
-                title: 'Download work as an MP3 file' %>
-        </li>
+        <%= link_to 'Mp3',
+              element.content_by_name('mp3_file').essence.attachment_url,
+              title: 'Download work as an MP3 file' %>
       <% end %>
-    </ul>
-  </section>
+    </p>
+
+  </article>
 
 <%- end -%>

@@ -1,8 +1,9 @@
 <%- cache(element) do -%>
 
-  <section class="row dh-image-gallery">
+  <article class="row dh-element dh-image-gallery">
     <%= render(partial: '/shared/image_gallery_element',
-               collection: element.contents.gallery_pictures) %>
-  </section>
+               collection: element.contents.gallery_pictures,
+               locals: { gallery_id: element.position }) %>
+  </article>
 
 <%- end -%>
