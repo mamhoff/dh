@@ -33,7 +33,7 @@ gem 'pry-rails',   group: :development
 
 gem 'bootstrap-sass'
 gem 'bootswatch-rails' # bootstrap themes ;)
-
+gem 'unicorn-rails', group: :production
 
 gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: "3.1-stable"
 gem "alchemy-devise", github: "AlchemyCMS/alchemy-devise", branch: "2.1-stable"
