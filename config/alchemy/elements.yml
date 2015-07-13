@@ -40,7 +40,7 @@
   - name: title
     type: EssenceText
   - name: year
-    type: EssenceDate
+    type: EssenceSelect
   - name: media
     type: EssenceText
   - name: body
