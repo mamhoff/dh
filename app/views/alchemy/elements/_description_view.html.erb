@@ -3,12 +3,10 @@
 
     <h2 class="dh-description-title"><%= element.ingredient('title') %></h2>
 
-    <% if element.has_ingredient?('year')
-         year = element.ingredient('year').year %>
-      <p class="dh-description-year">
-        <time datetime="<%= year %>"><%= year %></time>
-      </p>
-    <% end %>
+    <p class="dh-description-year">
+      <time datetime="<%= element.ingredient('year') %>">
+        <%= element.ingredient('year') %></time>
+    </p>
 
     <p class="dh-description-media"><%= element.ingredient('media') %></p>
 
