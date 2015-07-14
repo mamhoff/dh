@@ -26,9 +26,8 @@
     - description
     - image_gallery
 
-- name: about
-  unique: true
+- name: text_page
+  unique: false
   elements:
-    - about_text
-  autogenerate:
-    - about_text
+    - heading
+    - paragraph
