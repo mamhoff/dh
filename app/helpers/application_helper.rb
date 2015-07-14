@@ -8,17 +8,9 @@ module ApplicationHelper
       .joins(:page)
       .where('alchemy_pages.public = ?', true)
       .order(value: :desc)
-      .map { |essence| essence.value }.uniq
+      .pluck(:value)
+      .compact.uniq
   end
-
-  def get_years_new
-    Alchemy::Page.published
-    .joins(:essence_selects)
-    .includes(:essence_selects, elements: [:contents])
-    .reorder('alchemy_essence_selects.value DESC')
-    .map { |page| page.contents.where(name: 'year').first.try(:ingredient) }.uniq
-  end
-
 
   # All works with data within a year, sorted by their page position
   def get_works_for (year)
