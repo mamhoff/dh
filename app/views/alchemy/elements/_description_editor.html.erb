@@ -1,6 +1,6 @@
 <%= element_editor_for(element) do |el| -%>
   <%= el.edit :title %>
-  <%= el.edit :year %>
+  <%= el.edit :year, select_values: (1995..Time.now.year).to_a.reverse %>
   <%= el.edit :media %>
   <%= el.edit :body %>
 <%- end -%>

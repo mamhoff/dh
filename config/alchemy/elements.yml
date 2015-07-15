@@ -40,7 +40,7 @@
   - name: title
     type: EssenceText
   - name: year
-    type: EssenceDate
+    type: EssenceSelect
   - name: media
     type: EssenceText
   - name: body
@@ -54,9 +54,15 @@
     validate:
     - presence
 
-# For the about page
-- name: about_text
-  unique: true
+# For the text pages
+- name: heading
+  contents:
+  - name: body
+    type: EssenceText
+    validate:
+    - presence
+
+- name: paragraph
   contents:
   - name: body
     type: EssenceRichtext

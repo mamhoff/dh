@@ -2,23 +2,23 @@ module ApplicationHelper
 
   ### Works page
 
-  # Get all years in an array, in descending order
+  # Get all years in an array of strings, in descending order
   def get_years
-    Alchemy::Page.published
-    .joins(:essence_dates)
-    .includes(:essence_dates, elements: [:contents])
-    .reorder('alchemy_essence_dates.date DESC')
-    .map { |page| page.contents.where(name: "year").first.try(:ingredient).try(:year) }.uniq
+    Alchemy::EssenceSelect
+      .joins(:page)
+      .where('alchemy_pages.public = ?', true)
+      .order(value: :desc)
+      .pluck(:value)
+      .compact.uniq
   end
 
-  # All works with data within a year
+  # All works with data within a year, sorted by their page position
   def get_works_for (year)
     Alchemy::Page.published
-      .joins(:essence_dates)
-      .includes(:essence_dates, elements: [:contents])
-      .reorder('alchemy_essence_dates.date DESC')
-      .where('alchemy_essence_dates.date >= ? and alchemy_essence_dates.date <= ?',
-        "#{year}-01-01", "#{year}-12-31")
+      .joins(:essence_selects)
+      .includes(:essence_selects, elements: [:contents])
+      .reorder(:lft)
+      .where('alchemy_essence_selects.value = ?', year)
   end
 
   # Render thumbnail URL for work page
