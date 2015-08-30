@@ -27,7 +27,7 @@ module ApplicationHelper
     image_slider = page.find_elements(only: ['image_slider',
       'image_gallery']).first
 
-    if image_slider
+    if image_slider && image_slider.contents.present?
       render_essence_view(image_slider.contents.gallery_pictures.first,
                           { image_size: '170x170', crop: true },
                           { class: 'dh-works-page-thumbnail' })
