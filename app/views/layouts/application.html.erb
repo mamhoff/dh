@@ -8,28 +8,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar-header">
+  <div id="main-wrapper">
+    <header>
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-header">
+          </div>
+          <div id="navbar">
+            <ul class="nav dh-navbar-nav">
+              <li><%= link_to 'Start', '/start' %></li>
+              <% Alchemy::Language.current.root_page.children.visible.published.each do |page| %>
+                <li><%= link_to page.name, "/#{page.urlname}" %></li>
+              <% end %>
+            </ul>
+          </div>
         </div>
-        <div id="navbar">
-          <ul class="nav dh-navbar-nav">
-            <li><%= link_to 'Start', '/start' %></li>
-            <% Alchemy::Language.current.root_page.children.visible.published.each do |page| %>
-              <li><%= link_to page.name, "/#{page.urlname}" %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
+      </nav>
+    </header>
 
-  <div class="container">
-    <%= yield %>
-    <%= alchemy_preview_mode_code %>
-    <%= render "alchemy/menubar" %>
+    <div class="container">
+      <%= yield %>
+      <%= alchemy_preview_mode_code %>
+      <%= render "alchemy/menubar" %>
+    </div>
+    <footer>
+      <ul class="footer-links">
+        <li>
+          <%= link_to "Impressum", "/impressum" %>
+        </li>
+      </ul>
+    </footer>
   </div>
-
 </body>
 </html>

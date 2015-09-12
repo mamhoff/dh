@@ -1,3 +1,10 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 // fluid media assets
 img, audio, video {
   max-width: 100%;
@@ -14,4 +21,25 @@ main {
 
 .dh-gallery-item {
   margin-bottom: 15px;
+}
+
+footer {
+  bottom: 0;
+  height: 30px;
+  position: absolute;
+  width: 100%;
+  right: 0;
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 300;
+
+  ul {
+    list-style-type: none;
+  }
+}
+
+#main-wrapper {
+    min-height: 100%;
+    padding: 0 0 30px;
+    position: relative;
 }
