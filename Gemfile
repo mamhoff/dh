@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.10'
+gem 'rails', '~> 4.2.1'
 # Use MySQL as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -35,8 +35,8 @@ gem 'bootstrap-sass'
 gem 'bootswatch-rails' # bootstrap themes ;)
 gem 'unicorn-rails', group: :production
 
-gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: "3.1-stable"
-gem "alchemy-devise", github: "AlchemyCMS/alchemy-devise", branch: "2.1-stable"
+gem "alchemy_cms", "~> 3.2.0"
+gem "alchemy-devise", "~> 3.2.0"
 gem "capistrano", "~> 3.0", group: "development"
 gem 'capistrano-uberspace', github: 'mamhoff/capistrano-uberspace', branch: 'master', group: :development
 gem 'capistrano-alchemy', github: "AlchemyCMS/capistrano-alchemy", branch: 'master'
