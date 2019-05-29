@@ -9,7 +9,7 @@ GIT
 GIT
   remote: git://github.com/mamhoff/capistrano-uberspace.git
   revision: 187d03121914029bfe53cab2cacb57cfbd7f0843
-  branch: master
+  branch: uberspace-6
   specs:
     capistrano-uberspace (0.0.1)
       capistrano (~> 3.1)
@@ -197,7 +197,7 @@ GEM
     mini_portile2 (2.2.0)
     minitest (5.10.2)
     multi_json (1.12.1)
-    mysql2 (0.4.2)
+    mysql2 (0.4.10)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.1.0)
@@ -320,7 +320,7 @@ DEPENDENCIES
   capistrano-alchemy!
   capistrano-uberspace!
   jbuilder (~> 2.0)
-  mysql2
+  mysql2 (~> 0.4.0)
   pry-rails
   rails (~> 4.2.8)
   sass-rails

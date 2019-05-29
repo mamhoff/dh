@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.8'
 # Use MySQL as the database for Active Record
-gem 'mysql2'
+gem 'mysql2', '~> 0.4.0'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
@@ -38,5 +38,5 @@ gem 'unicorn-rails', group: :production
 gem "alchemy_cms", "~> 3.4.0"
 gem "alchemy-devise", "~> 3.4.0"
 gem "capistrano", "~> 3.0", group: "development"
-gem 'capistrano-uberspace', github: 'mamhoff/capistrano-uberspace', branch: 'master', group: :development
+gem 'capistrano-uberspace', github: 'mamhoff/capistrano-uberspace', branch: 'uberspace-6', group: :development
 gem 'capistrano-alchemy', github: "AlchemyCMS/capistrano-alchemy", branch: 'master'
