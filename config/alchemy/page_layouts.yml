@@ -20,7 +20,6 @@
     - image_slider
     - image_gallery
     - description
-    - vimeo_gallery
   autogenerate:
     - image_slider
     - description
