@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.2.8'
+gem 'rails'
 # Use MySQL as the database for Active Record
 gem 'mysql2', '~> 0.4.0'
 # Use SCSS for stylesheets
@@ -35,8 +35,8 @@ gem 'bootstrap-sass'
 gem 'bootswatch-rails' # bootstrap themes ;)
 gem 'unicorn-rails', group: :production
 
-gem "alchemy_cms", "~> 3.6.0"
-gem "alchemy-devise", "~> 3.6.0"
+gem "alchemy_cms", "~> 4.0.0"
+gem "alchemy-devise", "~> 4.0.0"
 
 group :development do
   gem "capistrano", "~> 3.0", require: false
