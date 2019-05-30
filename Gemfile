@@ -35,8 +35,8 @@ gem 'bootstrap-sass'
 gem 'bootswatch-rails' # bootstrap themes ;)
 gem 'unicorn-rails', group: :production
 
-gem "alchemy_cms", "~> 4.0.0"
-gem "alchemy-devise", "~> 4.0.0"
+gem "alchemy_cms", "~> 4.1.0"
+gem "alchemy-devise", "~> 4.1.0"
 
 group :development do
   gem "capistrano", "~> 3.0", require: false
