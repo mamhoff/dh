@@ -6,7 +6,7 @@ module ApplicationHelper
   def get_years
     Alchemy::EssenceSelect
       .joins(:page)
-      .where('alchemy_pages.public = ?', true)
+      .merge(Alchemy::Page.published)
       .order(value: :desc)
       .pluck(:value)
       .compact.uniq
@@ -28,8 +28,8 @@ module ApplicationHelper
       'image_gallery']).first
 
     if image_slider && image_slider.contents.present?
-      render_essence_picture_view(image_slider.contents.gallery_pictures.first,
-                          { image_size: '170x170', crop: true },
+      render_essence_view(image_slider.contents.gallery_pictures.first,
+                          { size: '170x170', crop: true },
                           { class: 'dh-works-page-thumbnail' })
     else
       image_tag('question_mark.png', alt: 'No preview found')
