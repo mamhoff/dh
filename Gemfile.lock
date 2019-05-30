@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/AlchemyCMS/capistrano-alchemy.git
-  revision: cd73dbe9309360f95a26198020836ca494ce5b20
+  revision: dc3c5edf5f284afcf3b0bb09342d724d65bf3996
   branch: master
   specs:
-    capistrano-alchemy (0.3.0)
+    capistrano-alchemy (1.0.0)
       capistrano-rails (~> 1.1)
 
 GIT
@@ -116,7 +116,7 @@ GEM
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
-    capistrano-rails (1.1.6)
+    capistrano-rails (1.4.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
     capistrano-secrets-yml (1.0.0)
