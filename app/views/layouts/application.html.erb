@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= render_meta_data %>
+  <%= render 'alchemy/pages/meta_data' %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -28,7 +28,7 @@
 
     <div class="container">
       <%= yield %>
-      <%= alchemy_preview_mode_code %>
+      <%= render 'alchemy/preview_mode_code' %>
       <%= render "alchemy/menubar" %>
     </div>
     <footer>
