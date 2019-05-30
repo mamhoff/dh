@@ -37,6 +37,9 @@ gem 'unicorn-rails', group: :production
 
 gem "alchemy_cms", "~> 3.5.0"
 gem "alchemy-devise", "~> 3.5.0"
-gem "capistrano", "~> 3.0", group: "development"
-gem 'capistrano-uberspace', github: 'mamhoff/capistrano-uberspace', branch: 'uberspace-6', group: :development
-gem 'capistrano-alchemy', github: "AlchemyCMS/capistrano-alchemy", branch: 'master'
+
+group :development do
+  gem "capistrano", "~> 3.0", require: false
+  gem 'capistrano-uberspace', github: 'mamhoff/capistrano-uberspace', branch: 'uberspace-6', require: false
+  gem 'capistrano-alchemy', github: "AlchemyCMS/capistrano-alchemy", branch: 'master', require: false
+end
