@@ -35,8 +35,8 @@ gem 'bootstrap-sass'
 gem 'bootswatch-rails' # bootstrap themes ;)
 gem 'unicorn-rails', group: :production
 
-gem "alchemy_cms", "~> 3.4.0"
-gem "alchemy-devise", "~> 3.4.0"
+gem "alchemy_cms", "~> 3.5.0"
+gem "alchemy-devise", "~> 3.5.0"
 gem "capistrano", "~> 3.0", group: "development"
 gem 'capistrano-uberspace', github: 'mamhoff/capistrano-uberspace', branch: 'uberspace-6', group: :development
 gem 'capistrano-alchemy', github: "AlchemyCMS/capistrano-alchemy", branch: 'master'
