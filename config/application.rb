@@ -30,9 +30,9 @@ module DouglasHendersonOrg
 
     # config/application.rb
     config.action_dispatch.rack_cache = {
-      verbose:     true,
-      metastore:   'file:/var/cache/rack/meta',
-      entitystore: 'file:/var/cache/rack/body'
+      verbose:     false,
+      metastore:   'file:cache/rack/meta',
+      entitystore: 'file:cache/rack/body'
     }
   end
 end
