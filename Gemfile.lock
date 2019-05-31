@@ -92,6 +92,8 @@ GEM
       select2-rails (>= 3.5.9.1, < 4.0)
       simple_form (~> 4.0)
       turbolinks (>= 2.5)
+    alchemy_i18n (1.0.0)
+      alchemy_cms (>= 4.1.0.beta, < 5.0)
     arel (8.0.0)
     autoprefixer-rails (9.5.1.1)
       execjs
@@ -309,6 +311,7 @@ PLATFORMS
 DEPENDENCIES
   alchemy-devise (~> 4.1.0)
   alchemy_cms (~> 4.1.0)
+  alchemy_i18n
   bootstrap-sass
   bootswatch-rails
   capistrano (~> 3.0)

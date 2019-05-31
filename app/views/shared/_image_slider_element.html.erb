@@ -2,6 +2,6 @@
   <%# Cannot use link_to helper because data attribute won't work %>
   <a href="<%= image_slider_element.essence.picture_url %>"
     data-toggle="lightbox" data-always_show_close="false">
-    <%= render_essence_view(image_slider_element, { size: '800x400', crop: true }, {}) %>
+    <%= render_essence_view(image_slider_element, { size: '800x400' }, {}) %>
   </a>
 </div>

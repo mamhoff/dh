@@ -37,6 +37,7 @@ gem 'unicorn-rails', group: :production
 
 gem "alchemy_cms", "~> 4.1.0"
 gem "alchemy-devise", "~> 4.1.0"
+gem "alchemy_i18n"
 
 group :development do
   gem "capistrano", "~> 3.0", require: false
