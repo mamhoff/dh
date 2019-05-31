@@ -34,6 +34,7 @@ gem 'pry-rails',   group: :development
 gem 'bootstrap-sass'
 gem 'bootswatch-rails' # bootstrap themes ;)
 gem 'unicorn-rails', group: :production
+gem 'rack-cache', :require => 'rack/cache'
 
 gem "alchemy_cms", "~> 4.2.0"
 gem "alchemy-devise", "~> 4.2.0"
