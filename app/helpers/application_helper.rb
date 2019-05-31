@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   ### Works page
 
   # Get all years in an array of strings, in descending order
@@ -13,7 +12,7 @@ module ApplicationHelper
   end
 
   # All works with data within a year, sorted by their page position
-  def get_works_for (year)
+  def get_works_for(year)
     Alchemy::Page.published
       .joins(:essence_selects)
       .includes(:essence_selects, elements: [:contents])
@@ -23,7 +22,7 @@ module ApplicationHelper
 
   # Render thumbnail URL for work page
   # Look for an image on the work page that we can use
-  def render_work_thumbnail (page)
+  def render_work_thumbnail(page)
     image_slider = page.find_elements(only: ['image_slider',
       'image_gallery']).first
 
@@ -36,18 +35,16 @@ module ApplicationHelper
     end
   end
 
-
   ### Work pages
 
   # Extract iframe src from Vimeo embed code.
-  def extract_vimeo_source (vimeo_embed_code)
+  def extract_vimeo_source(vimeo_embed_code)
     vimeo_embed_code.match(/src=\"(.*?)\"/)[1].to_s
   end
 
   # Extract video id from Vimeo embed code.
-  def extract_vimeo_id (vimeo_embed_code)
+  def extract_vimeo_id(vimeo_embed_code)
     extract_vimeo_source(vimeo_embed_code)
       .match(/video\/(\d+)$/)[1].to_s
   end
-
 end
