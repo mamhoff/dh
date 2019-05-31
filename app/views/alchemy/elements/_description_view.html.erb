@@ -1,17 +1,17 @@
-<%- cache(element) do -%>
+<%- cache(description_view) do -%>
   <article class="dh-element dh-description">
 
-    <h2 class="dh-description-title"><%= element.ingredient('title') %></h2>
+    <h2 class="dh-description-title"><%= description_view.ingredient('title') %></h2>
 
     <p class="dh-description-year">
-      <time datetime="<%= element.ingredient('year') %>">
-        <%= element.ingredient('year') %></time>
+      <time datetime="<%= description_view.ingredient('year') %>">
+        <%= description_view.ingredient('year') %></time>
     </p>
 
-    <p class="dh-description-media"><%= element.ingredient('media') %></p>
+    <p class="dh-description-media"><%= description_view.ingredient('media') %></p>
 
     <section class="dh-description-body">
-      <%= raw element.ingredient('body') %>
+      <%= raw description_view.ingredient('body') %>
     </section>
 
   </article>

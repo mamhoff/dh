@@ -1,9 +1,11 @@
-<div class="dh-gallery-item dh-image-gallery-element col-xs-6 col-sm-4
-  col-md-3">
-  <%= link_to(render_essence_view(image_gallery_element,
-                { image_size: '170x170', crop: true },
-                { class: 'dh-image-gallery-image' }),
-              image_gallery_element.essence.picture_url,
-              data: { toggle: 'lightbox',
-                gallery: "image-gallery-#{gallery_id}" }) %>
+<div class="dh-gallery-item dh-image-gallery-element col-xs-6 col-sm-4 col-md-3">
+  <%= link_to(image_gallery_element.essence.picture_url,
+        data: { toggle: 'lightbox',
+        gallery: "image-gallery-#{gallery_id}" } do
+        Alchemy::EssencePictureView.new(
+          content,
+          { image_size: '170x170', crop: true },
+          { class: 'dh-image-gallery-image' }
+        ).render
+      end %>
 </div>

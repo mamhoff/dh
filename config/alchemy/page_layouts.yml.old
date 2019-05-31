@@ -1,0 +1,32 @@
+# == This file defines the page layouts for new pages.
+#
+# For further informations please see http://guides.alchemy-cms.com/create_page_layouts.html
+
+- name: start
+  unique: true
+  elements:
+    - picture
+  autogenerate:
+    - picture
+
+- name: works
+  unique: true
+
+- name: work
+  unique: false
+  elements:
+    - vimeo_queen
+    - sound
+    - image_slider
+    - image_gallery
+    - description
+  autogenerate:
+    - image_slider
+    - description
+    - image_gallery
+
+- name: text_page
+  unique: false
+  elements:
+    - heading
+    - paragraph

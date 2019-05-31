@@ -1,10 +1,10 @@
----
 - name: picture
   contents:
   - name: picture
     type: EssencePicture
     validate:
     - presence
+
 - name: vimeo_queen
   unique: true
   contents:
@@ -12,18 +12,14 @@
     type: EssenceHtml
     validate:
     - presence
+
 - name: sound
   contents:
   - name: ogg_file
     type: EssenceFile
   - name: mp3_file
     type: EssenceFile
-- name: image_slider
-  unique: true
-  picture_gallery: true
-- name: image_gallery
-  unique: true
-  picture_gallery: true
+
 - name: description
   unique: true
   contents:
@@ -35,15 +31,41 @@
     type: EssenceText
   - name: body
     type: EssenceRichtext
+
 - name: heading
   contents:
   - name: body
     type: EssenceText
     validate:
     - presence
+
 - name: paragraph
   contents:
   - name: body
     type: EssenceRichtext
     validate:
     - presence
+
+- name: image_slider
+  unique: true
+  nestable_elements:
+  - image_slider_picture
+
+- name: image_slider_picture
+  compact: true
+  contents:
+  - name: picture
+    type: EssencePicture
+
+- name: image_gallery
+  unique: true
+  nestable_elements:
+  - image_gallery_picture
+
+- name: image_gallery_picture
+  compact: true
+  contents:
+  - name: picture
+    type: EssencePicture
+    settings:
+      crop: true

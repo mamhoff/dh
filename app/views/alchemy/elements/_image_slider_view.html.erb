@@ -1,4 +1,4 @@
-<%- cache(element) do -%>
+<%- cache(image_slider_view) do -%>
 
   <article id="dh-slider" class="dh-element dh-slider carousel slide"
     data-ride="carousel">
@@ -6,7 +6,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <%= render(partial: '/shared/image_slider_element',
-                 collection: element.contents.gallery_pictures) %>
+                 collection: image_slider_view.nested_elements) %>
     </div>
 
     <!-- Controls -->

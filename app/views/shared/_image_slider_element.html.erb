@@ -1,7 +1,12 @@
+<% content = image_slider_element.contents.first %>
 <div class="item<%= image_slider_element_counter == 0 ? " active" : "" %>">
   <%# Cannot use link_to helper because data attribute won't work %>
-  <a href="<%= image_slider_element.essence.picture_url %>"
+  <a href="<%= image_slider_element.contents.first.ingredient.url %>"
     data-toggle="lightbox" data-always_show_close="false">
-    <%= render_essence_view(image_slider_element, { size: '800x400' }, {}) %>
+    <%= Alchemy::EssencePictureView.new(
+      content,
+      { size: '800x400' },
+      {}
+    ).render %>
   </a>
 </div>

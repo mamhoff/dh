@@ -1,5 +1,5 @@
-<%- cache(element) do -%>
-  <%= element_view_for(element, tag: 'h2',
+<%- cache(heading_view) do -%>
+  <%= element_view_for(heading_view, tag: 'h2',
     class: 'dh-textpage-heading') do |el| -%>
     <%= el.render :body %>
   <%- end -%>

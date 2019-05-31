@@ -26,10 +26,12 @@ module ApplicationHelper
     image_slider = page.find_elements(only: ['image_slider',
       'image_gallery']).first
 
-    if image_slider && image_slider.contents.present?
-      render_essence_view(image_slider.contents.gallery_pictures.first,
-                          { size: '170x170', crop: true },
-                          { class: 'dh-works-page-thumbnail' })
+    if image_slider && image_slider.nested_elements.present?
+      Alchemy::EssencePictureView.new(
+        image_slider.nested_elements.first.contents.first,
+          { size: '170x170', crop: true },
+          { class: 'dh-works-page-thumbnail' }
+      ).render
     else
       image_tag('question_mark.png', alt: 'No preview found')
     end

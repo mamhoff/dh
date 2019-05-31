@@ -1,16 +1,10 @@
-# == In this configuration you setup Alchemy´s element layouts.
-#
-# For further informations please see http://guides.alchemy-cms.com/create_elements.html
-
-# For the start page
+---
 - name: picture
   contents:
   - name: picture
     type: EssencePicture
     validate:
     - presence
-
-# For the work pages
 - name: vimeo_queen
   unique: true
   contents:
@@ -18,22 +12,18 @@
     type: EssenceHtml
     validate:
     - presence
-
 - name: sound
   contents:
   - name: ogg_file
     type: EssenceFile
   - name: mp3_file
     type: EssenceFile
-
 - name: image_slider
   unique: true
   picture_gallery: true
-
 - name: image_gallery
   unique: true
   picture_gallery: true
-
 - name: description
   unique: true
   contents:
@@ -45,23 +35,12 @@
     type: EssenceText
   - name: body
     type: EssenceRichtext
-
-- name: vimeo_gallery
-  unique: true
-  available_contents:
-  - name: vimeo_code
-    type: EssenceHtml
-    validate:
-    - presence
-
-# For the text pages
 - name: heading
   contents:
   - name: body
     type: EssenceText
     validate:
     - presence
-
 - name: paragraph
   contents:
   - name: body
