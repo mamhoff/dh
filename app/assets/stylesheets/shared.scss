@@ -45,3 +45,9 @@ footer {
     padding: 0 0 30px;
     position: relative;
 }
+
+.ekko-lightbox.modal .modal-dialog {
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 40px);
+  margin: 30px auto;
+}
