@@ -78,4 +78,6 @@ Rails.application.configure do
 
   # Cache all the things.
   config.action_dispatch.rack_cache = true
+
+  config.require_master_key = true
 end
