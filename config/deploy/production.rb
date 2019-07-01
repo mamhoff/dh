@@ -8,7 +8,7 @@ server 'brewington.uberspace.de', user: 'hexkreis', roles: %w{app db web}
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
 # You have to set where to store the code, the default /var/www/my_app_name won't work on uberspace
-set :deploy_to, '/home/hexkreis/rails_app'
+set :deploy_to, '/home/hexkreis/douglas_henderson'
 
 # role-based syntax
 # ==================
