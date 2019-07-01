@@ -22,3 +22,6 @@ uploads/*
 config/database.yml
 config/initializers/secret_token.rb
 cache/*
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key

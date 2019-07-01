@@ -42,6 +42,6 @@ gem "alchemy_i18n"
 
 group :development do
   gem "capistrano", "~> 3.0", require: false
-  gem 'capistrano-uberspace', github: 'mamhoff/capistrano-uberspace', branch: 'uberspace-6', require: false
+  gem 'capistrano-uberspace', github: 'mamhoff/capistrano-uberspace', branch: 'uberspace-7', require: false
   gem 'capistrano-alchemy', github: "AlchemyCMS/capistrano-alchemy", branch: 'master', require: false
 end

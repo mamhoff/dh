@@ -3,12 +3,12 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server 'shaula.uberspace.de', user: 'douglas', roles: %w{app db web}
+server 'brewington.uberspace.de', user: 'hexkreis', roles: %w{app db web}
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
 # You have to set where to store the code, the default /var/www/my_app_name won't work on uberspace
-set :deploy_to, '/var/www/virtual/douglas/rails/douglas_henderson'
+set :deploy_to, '/home/hexkreis/rails_app'
 
 # role-based syntax
 # ==================
