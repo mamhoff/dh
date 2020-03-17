@@ -1,0 +1,9 @@
+<%- cache(image_gallery) do -%>
+
+  <article class="row dh-element dh-image-gallery">
+    <%= render(partial: '/shared/image_gallery_element',
+               collection: image_gallery.nested_elements,
+               locals: { gallery_id: image_gallery.position }) %>
+  </article>
+
+<%- end -%>

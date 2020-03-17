@@ -1,5 +1,5 @@
-<%- cache(picture_view) do -%>
-  <%= element_view_for(picture_view, tag: 'article',
+<%- cache(picture) do -%>
+  <%= element_view_for(picture, tag: 'article',
     class: 'dh-element dh-picture') do |el| -%>
     <%= el.render :picture %>
   <%- end -%>

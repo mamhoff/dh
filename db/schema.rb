@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_31_104618) do
+ActiveRecord::Schema.define(version: 2020_03_17_115233) do
 
   create_table "alchemy_attachments", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name"
@@ -120,6 +120,13 @@ ActiveRecord::Schema.define(version: 2019_05_31_104618) do
     t.integer "updater_id"
   end
 
+  create_table "alchemy_essence_pages", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_alchemy_essence_pages_on_page_id"
+  end
+
   create_table "alchemy_essence_pictures", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "picture_id"
     t.string "caption"
@@ -205,6 +212,34 @@ ActiveRecord::Schema.define(version: 2019_05_31_104618) do
     t.datetime "updated_at", null: false
     t.index ["page_id"], name: "index_alchemy_legacy_page_urls_on_page_id"
     t.index ["urlname"], name: "index_alchemy_legacy_page_urls_on_urlname"
+  end
+
+  create_table "alchemy_nodes", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "title"
+    t.string "url"
+    t.boolean "nofollow", default: false, null: false
+    t.boolean "external", default: false, null: false
+    t.boolean "folded", default: false, null: false
+    t.integer "parent_id"
+    t.integer "lft", null: false
+    t.integer "rgt", null: false
+    t.integer "depth", default: 0, null: false
+    t.integer "page_id"
+    t.integer "language_id", null: false
+    t.integer "creator_id"
+    t.integer "updater_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "site_id", null: false
+    t.index ["creator_id"], name: "index_alchemy_nodes_on_creator_id"
+    t.index ["language_id"], name: "index_alchemy_nodes_on_language_id"
+    t.index ["lft"], name: "index_alchemy_nodes_on_lft"
+    t.index ["page_id"], name: "index_alchemy_nodes_on_page_id"
+    t.index ["parent_id"], name: "index_alchemy_nodes_on_parent_id"
+    t.index ["rgt"], name: "index_alchemy_nodes_on_rgt"
+    t.index ["site_id"], name: "index_alchemy_nodes_on_site_id"
+    t.index ["updater_id"], name: "index_alchemy_nodes_on_updater_id"
   end
 
   create_table "alchemy_pages", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
@@ -308,7 +343,7 @@ ActiveRecord::Schema.define(version: 2019_05_31_104618) do
     t.integer "taggable_id", null: false
     t.string "taggable_type", null: false
     t.datetime "created_at", null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "updated_at", null: false
     t.index ["tag_id", "taggable_id", "taggable_type"], name: "unique_taggings", unique: true
     t.index ["tag_id"], name: "index_gutentag_taggings_on_tag_id"
     t.index ["taggable_id", "taggable_type"], name: "index_gutentag_taggings_on_taggable_id_and_taggable_type"
@@ -321,8 +356,36 @@ ActiveRecord::Schema.define(version: 2019_05_31_104618) do
     t.index ["taggings_count"], name: "index_gutentag_tags_on_taggings_count"
   end
 
+  create_table "taggings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "tag_id"
+    t.integer "taggable_id"
+    t.string "taggable_type"
+    t.integer "tagger_id"
+    t.string "tagger_type"
+    t.string "context"
+    t.datetime "created_at"
+    t.index ["context"], name: "index_taggings_on_context"
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+    t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
+    t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
+    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
+    t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
+  end
+
+  create_table "tags", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.integer "taggings_count", default: 0
+    t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
   add_foreign_key "alchemy_cells", "alchemy_pages", column: "page_id", name: "alchemy_cells_page_id_fkey", on_update: :cascade, on_delete: :cascade
   add_foreign_key "alchemy_contents", "alchemy_elements", column: "element_id", name: "alchemy_contents_element_id_fkey", on_update: :cascade, on_delete: :cascade
   add_foreign_key "alchemy_elements", "alchemy_cells", column: "cell_id", name: "alchemy_elements_cell_id_fkey", on_update: :cascade, on_delete: :cascade
   add_foreign_key "alchemy_elements", "alchemy_pages", column: "page_id", name: "alchemy_elements_page_id_fkey", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "alchemy_essence_pages", "alchemy_pages", column: "page_id"
+  add_foreign_key "alchemy_nodes", "alchemy_languages", column: "language_id"
+  add_foreign_key "alchemy_nodes", "alchemy_pages", column: "page_id", on_delete: :cascade
+  add_foreign_key "alchemy_nodes", "alchemy_sites", column: "site_id", on_delete: :cascade
 end
