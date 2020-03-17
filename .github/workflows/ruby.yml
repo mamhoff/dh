@@ -67,6 +67,7 @@ jobs:
         DB_USER: user
         DB_PASSWORD: password
         DB_PORT: ${{ job.services.mariadb.ports[3306] }}
+        RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
       run: |
         cp config/database.yml.example config/database.yml
         bundle exec rake db:test:prepare
