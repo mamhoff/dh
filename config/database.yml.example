@@ -1,0 +1,26 @@
+# ENV is set in each of the .env files
+# ENV['DB'] is set in .travis.yml
+mysql2: &mysql2
+  adapter: mysql2
+  username: <%= ENV['DB_USER'] || "postgres" %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  min_messages: ERROR
+
+defaults: &defaults
+  pool: 5
+  timeout: 5000
+  host: <%= ENV['DB_HOST'] || '127.0.0.1' %>
+  port: <%= ENV['DB_PORT'] || '3306' %>
+  <<: *<%= ENV['DB'] || "mysql2" %>
+
+development:
+  database: douglas_henderson_development
+  <<: *defaults
+
+test:
+  database: douglas_henderson_test
+  <<: *defaults
+
+production:
+  database: douglas_henderson_production
+  <<: *defaults

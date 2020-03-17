@@ -1,5 +1,5 @@
-<%- cache(paragraph_view) do -%>
-  <%= element_view_for(paragraph_view, tag: 'article',
+<%- cache(paragraph) do -%>
+  <%= element_view_for(paragraph, tag: 'article',
     class: 'dh-textpage-paragraph') do |el| -%>
     <%= el.render :body %>
   <%- end -%>

@@ -33,12 +33,16 @@ gem 'pry-rails',   group: :development
 
 gem 'bootstrap-sass'
 gem 'bootswatch-rails' # bootstrap themes ;)
-gem 'unicorn-rails', group: :production
+gem 'puma'
 gem 'rack-cache', :require => 'rack/cache'
 
-gem "alchemy_cms", "~> 4.2.0"
-gem "alchemy-devise", "~> 4.2.0"
+gem "alchemy_cms", "~> 4.4.0"
+gem "alchemy-devise", "~> 4.4.0"
 gem "alchemy_i18n"
+
+group :test do
+  gem 'rspec-rails'
+end
 
 group :development do
   gem "capistrano", "~> 3.0", require: false

@@ -1,10 +1,10 @@
-<%- cache(sound_view) do -%>
+<%- cache(sound) do -%>
 
   <article class="dh-element dh-sound">
 
-    <% if sound_view.essence_files.any? %>
+    <% if sound.essence_files.any? %>
       <audio controls="controls">
-        <% sound_view.essence_files.each do |essence_file| %>
+        <% sound.essence_files.each do |essence_file| %>
           <source src="<%= essence_file.attachment_url %>" />
         <% end %>
       </audio>
@@ -13,15 +13,15 @@
     <p>
       Download:
 
-      <% if sound_view.has_ingredient?('ogg_file') %>
+      <% if sound.has_ingredient?('ogg_file') %>
         <%= link_to 'Ogg',
-              sound_view.content_by_name('ogg_file').essence.attachment_url,
+              sound.content_by_name('ogg_file').essence.attachment_url,
               title: 'Download work as an OGG file' %>
       <% end %>
 
-      <% if sound_view.has_ingredient?('mp3_file') %>
+      <% if sound.has_ingredient?('mp3_file') %>
         <%= link_to 'Mp3',
-              sound_view.content_by_name('mp3_file').essence.attachment_url,
+              sound.content_by_name('mp3_file').essence.attachment_url,
               title: 'Download work as an MP3 file' %>
       <% end %>
     </p>
