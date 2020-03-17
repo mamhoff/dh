@@ -40,6 +40,10 @@ gem "alchemy_cms", "~> 4.2.0"
 gem "alchemy-devise", "~> 4.2.0"
 gem "alchemy_i18n"
 
+group :test do
+  gem 'rspec-rails'
+end
+
 group :development do
   gem "capistrano", "~> 3.0", require: false
   gem 'capistrano-uberspace', github: 'mamhoff/capistrano-uberspace', branch: 'uberspace-7', require: false
