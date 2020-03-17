@@ -69,8 +69,8 @@ jobs:
         DB_PORT: ${{ job.services.mariadb.ports[3306] }}
       run: |
         cp config/database.yml.example config/database.yml
-        # bundle exec rake db:test:prepare
-        # bundle exec rspec
+        bundle exec rake db:test:prepare
+        bundle exec rspec
     - name: deploy_production
       if: github.ref == 'refs/heads/production'
       run: |
