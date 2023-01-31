@@ -47,7 +47,7 @@ end
 group :development do
   gem "capistrano", "~> 3.0", require: false
   gem 'capistrano-uberspace', git: 'git@github.com:mamhoff/capistrano-uberspace', branch: 'uberspace-7', require: false
-  gem 'capistrano-alchemy', git: "git@github.com:AlchemyCMS/capistrano-alchemy.git", branch: "master"
+  gem 'capistrano-alchemy', git: "git@github.com:AlchemyCMS/capistrano-alchemy.git", branch: "master", require: false
   gem "ed25519"
   gem "bcrypt_pbkdf"
 end
