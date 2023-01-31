@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', "~> 5.2"
 # Use MySQL as the database for Active Record
 gem 'mysql2', '~> 0.4.0'
 # Use SCSS for stylesheets
@@ -46,6 +46,6 @@ end
 
 group :development do
   gem "capistrano", "~> 3.0", require: false
-  gem 'capistrano-uberspace', github: 'mamhoff/capistrano-uberspace', branch: 'uberspace-7', require: false
-  gem 'capistrano-alchemy', github: "AlchemyCMS/capistrano-alchemy", branch: 'master', require: false
+  gem 'capistrano-uberspace', git: 'git@github.com:mamhoff/capistrano-uberspace', branch: 'uberspace-7', require: false
+  gem 'capistrano-alchemy', git: "git@github.com:AlchemyCMS/capistrano-alchemy.git", branch: "master"
 end
