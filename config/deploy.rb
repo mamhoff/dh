@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.11.0'
+lock '3.17.1'
 
 set :application, 'douglas_henderson'
 set :repo_url, 'git@github.com:mamhoff/dh.git'
