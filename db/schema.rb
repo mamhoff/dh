@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_17_115233) do
+ActiveRecord::Schema.define(version: 2023_03_21_140228) do
 
   create_table "alchemy_attachments", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name"
@@ -118,6 +118,14 @@ ActiveRecord::Schema.define(version: 2020_03_17_115233) do
     t.datetime "updated_at", null: false
     t.integer "creator_id"
     t.integer "updater_id"
+  end
+
+  create_table "alchemy_essence_nodes", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci", force: :cascade do |t|
+    t.integer "id"
+    t.bigint "node_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["node_id"], name: "index_alchemy_essence_nodes_on_node_id"
   end
 
   create_table "alchemy_essence_pages", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci", force: :cascade do |t|
@@ -231,14 +239,13 @@ ActiveRecord::Schema.define(version: 2020_03_17_115233) do
     t.integer "updater_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "site_id", null: false
+    t.string "menu_type", null: false
     t.index ["creator_id"], name: "index_alchemy_nodes_on_creator_id"
     t.index ["language_id"], name: "index_alchemy_nodes_on_language_id"
     t.index ["lft"], name: "index_alchemy_nodes_on_lft"
     t.index ["page_id"], name: "index_alchemy_nodes_on_page_id"
     t.index ["parent_id"], name: "index_alchemy_nodes_on_parent_id"
     t.index ["rgt"], name: "index_alchemy_nodes_on_rgt"
-    t.index ["site_id"], name: "index_alchemy_nodes_on_site_id"
     t.index ["updater_id"], name: "index_alchemy_nodes_on_updater_id"
   end
 
@@ -266,7 +273,7 @@ ActiveRecord::Schema.define(version: 2020_03_17_115233) do
     t.datetime "updated_at", null: false
     t.integer "creator_id"
     t.integer "updater_id"
-    t.integer "language_id"
+    t.integer "language_id", null: false
     t.datetime "published_at"
     t.datetime "public_on"
     t.datetime "public_until"
@@ -387,5 +394,5 @@ ActiveRecord::Schema.define(version: 2020_03_17_115233) do
   add_foreign_key "alchemy_essence_pages", "alchemy_pages", column: "page_id"
   add_foreign_key "alchemy_nodes", "alchemy_languages", column: "language_id"
   add_foreign_key "alchemy_nodes", "alchemy_pages", column: "page_id", on_delete: :cascade
-  add_foreign_key "alchemy_nodes", "alchemy_sites", column: "site_id", on_delete: :cascade
+  add_foreign_key "alchemy_pages", "alchemy_languages", column: "language_id"
 end
