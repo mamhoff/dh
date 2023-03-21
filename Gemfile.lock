@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:AlchemyCMS/capistrano-alchemy
+  remote: https://github.com/AlchemyCMS/capistrano-alchemy
   revision: 8c39b07610afd49b65fb972df8afdcfd0353bb41
   branch: master
   specs:
@@ -8,7 +8,7 @@ GIT
       capistrano-rails (~> 1.1)
 
 GIT
-  remote: git@github.com:mamhoff/capistrano-uberspace
+  remote: https://github.com/mamhoff/capistrano-uberspace
   revision: abaa97469ae757739843fc49e721e957d518faf1
   branch: uberspace-7
   specs:
