@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:AlchemyCMS/capistrano-alchemy.git
+  remote: git@github.com:AlchemyCMS/capistrano-alchemy
   revision: 8c39b07610afd49b65fb972df8afdcfd0353bb41
   branch: master
   specs:
