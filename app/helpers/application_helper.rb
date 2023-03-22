@@ -3,21 +3,24 @@ module ApplicationHelper
 
   # Get all years in an array of strings, in descending order
   def get_years
-    Alchemy::EssenceSelect
-      .joins(:page)
+    Alchemy::Ingredient
+      .where(type: "Alchemy::Ingredients::Select")
+      .joins(element: :page)
       .merge(Alchemy::Page.published)
       .order(value: :desc)
       .pluck(:value)
-      .compact.uniq
+      .uniq
   end
 
   # All works with data within a year, sorted by their page position
   def get_works_for(year)
     Alchemy::Page.published
-      .joins(:essence_selects)
-      .includes(:essence_selects, elements: [:contents])
+      .joins(elements: :ingredients)
+      .includes(elements: :ingredients)
       .reorder(:lft)
-      .where('alchemy_essence_selects.value = ?', year)
+      .where(alchemy_ingredients: { type: "Alchemy::Ingredients::Select" })
+      .where('alchemy_ingredients.value = ?', year)
+      .distinct
   end
 
   # Render thumbnail URL for work page
@@ -27,8 +30,8 @@ module ApplicationHelper
       'image_gallery']).first
 
     if image_slider && image_slider.nested_elements.present?
-      Alchemy::EssencePictureView.new(
-        image_slider.nested_elements.first.contents.first,
+      Alchemy::PictureView.new(
+        image_slider.nested_elements.first.ingredients.first,
           { size: '170x170', crop: true },
           { class: 'dh-works-page-thumbnail' }
       ).render

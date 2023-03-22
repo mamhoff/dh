@@ -1,32 +1,32 @@
 - name: picture
-  contents:
-  - name: picture
-    type: EssencePicture
+  ingredients:
+  - role: picture
+    type: Picture
     validate:
     - presence
 
 - name: vimeo_queen
   unique: true
-  contents:
-  - name: vimeo_code
-    type: EssenceHtml
+  ingredients:
+  - role: vimeo_code
+    type: Html
     validate:
     - presence
 
 - name: sound
-  contents:
-  - name: ogg_file
-    type: EssenceFile
-  - name: mp3_file
-    type: EssenceFile
+  ingredients:
+  - role: ogg_file
+    type: File
+  - role: mp3_file
+    type: File
 
 - name: description
   unique: true
-  contents:
-  - name: title
-    type: EssenceText
-  - name: year
-    type: EssenceSelect
+  ingredients:
+  - role: title
+    type: Text
+  - role: year
+    type: Select
     settings:
       select_values:
         - 1995
@@ -64,22 +64,22 @@
         - 2027
         - 2028
         - 2029
-  - name: media
-    type: EssenceText
-  - name: body
-    type: EssenceRichtext
+  - role: media
+    type: Text
+  - role: body
+    type: Richtext
 
 - name: heading
-  contents:
-  - name: body
-    type: EssenceText
+  ingredients:
+  - role: body
+    type: Text
     validate:
     - presence
 
 - name: paragraph
-  contents:
-  - name: body
-    type: EssenceRichtext
+  ingredients:
+  - role: body
+    type: Richtext
     validate:
     - presence
 
@@ -90,9 +90,9 @@
 
 - name: image_slider_picture
   compact: true
-  contents:
-  - name: picture
-    type: EssencePicture
+  ingredients:
+  - role: picture
+    type: Picture
 
 - name: image_gallery
   unique: true
@@ -101,8 +101,8 @@
 
 - name: image_gallery_picture
   compact: true
-  contents:
-  - name: picture
-    type: EssencePicture
+  ingredients:
+  - role: picture
+    type: Picture
     settings:
       crop: true
