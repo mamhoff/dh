@@ -215,7 +215,7 @@ GEM
     mini_portile2 (2.8.1)
     minitest (5.18.0)
     multi_json (1.15.0)
-    mysql2 (0.4.10)
+    mysql2 (0.5.5)
     net-imap (0.3.4)
       date
       net-protocol
@@ -373,7 +373,7 @@ DEPENDENCIES
   capistrano-uberspace!
   capistrano-yarn
   ed25519
-  mysql2 (~> 0.4.0)
+  mysql2
   pry-rails
   puma
   rack-cache
