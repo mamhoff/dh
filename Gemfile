@@ -34,8 +34,8 @@ gem 'bootswatch-rails' # bootstrap themes ;)
 gem 'puma'
 gem 'rack-cache', :require => 'rack/cache'
 
-gem "alchemy_cms", "~> 5.2.0"
-gem "alchemy-devise", "~> 5.1.0"
+gem "alchemy_cms", "~> 5.3.0"
+gem "alchemy-devise"
 gem "alchemy_i18n"
 
 group :test do
