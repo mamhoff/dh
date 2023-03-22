@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_21_140228) do
+ActiveRecord::Schema.define(version: 2023_03_22_100303) do
 
   create_table "alchemy_attachments", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name"
@@ -120,9 +120,8 @@ ActiveRecord::Schema.define(version: 2023_03_21_140228) do
     t.integer "updater_id"
   end
 
-  create_table "alchemy_essence_nodes", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci", force: :cascade do |t|
-    t.integer "id"
-    t.bigint "node_id"
+  create_table "alchemy_essence_nodes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci", force: :cascade do |t|
+    t.integer "node_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["node_id"], name: "index_alchemy_essence_nodes_on_node_id"
@@ -262,13 +261,12 @@ ActiveRecord::Schema.define(version: 2023_03_21_140228) do
     t.integer "rgt"
     t.integer "parent_id"
     t.integer "depth"
-    t.boolean "visible", default: false
     t.integer "locked_by"
     t.boolean "restricted", default: false
     t.boolean "robot_index", default: true
     t.boolean "robot_follow", default: true
     t.boolean "sitemap", default: true
-    t.boolean "layoutpage", default: false
+    t.boolean "layoutpage", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "creator_id"
@@ -391,6 +389,7 @@ ActiveRecord::Schema.define(version: 2023_03_21_140228) do
   add_foreign_key "alchemy_contents", "alchemy_elements", column: "element_id", name: "alchemy_contents_element_id_fkey", on_update: :cascade, on_delete: :cascade
   add_foreign_key "alchemy_elements", "alchemy_cells", column: "cell_id", name: "alchemy_elements_cell_id_fkey", on_update: :cascade, on_delete: :cascade
   add_foreign_key "alchemy_elements", "alchemy_pages", column: "page_id", name: "alchemy_elements_page_id_fkey", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "alchemy_essence_nodes", "alchemy_nodes", column: "node_id"
   add_foreign_key "alchemy_essence_pages", "alchemy_pages", column: "page_id"
   add_foreign_key "alchemy_nodes", "alchemy_languages", column: "language_id"
   add_foreign_key "alchemy_nodes", "alchemy_pages", column: "page_id", on_delete: :cascade
