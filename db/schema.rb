@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_22_121519) do
+ActiveRecord::Schema.define(version: 2023_03_22_142338) do
 
   create_table "alchemy_attachments", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name"
@@ -334,6 +334,7 @@ ActiveRecord::Schema.define(version: 2023_03_22_121519) do
     t.datetime "legacy_public_on"
     t.datetime "legacy_public_until"
     t.datetime "locked_at"
+    t.boolean "searchable", default: true, null: false
     t.index ["language_id"], name: "index_pages_on_language_id"
     t.index ["locked_at", "locked_by"], name: "index_alchemy_pages_on_locked_at_and_locked_by"
     t.index ["parent_id", "lft"], name: "index_pages_on_parent_id_and_lft"
