@@ -9,4 +9,3 @@
 // about supported directives.
 //
 //= require alchemy/admin
-//= require alchemy_i18n/de
