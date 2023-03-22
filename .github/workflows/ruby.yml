@@ -30,7 +30,7 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: "2.7"
+        ruby-version: "3.0"
     - uses: webfactory/ssh-agent@v0.7.0
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
