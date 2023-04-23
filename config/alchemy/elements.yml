@@ -104,7 +104,3 @@
   ingredients:
   - role: picture
     type: Picture
-    settings:
-      crop: true
-      size: 512x
-      fixed_ratio: false
