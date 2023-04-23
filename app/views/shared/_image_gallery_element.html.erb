@@ -1,12 +1,11 @@
-<% content = image_gallery_element.contents.first %>
+<% ingredient = image_gallery_element.ingredients.first %>
 <div class="dh-gallery-item dh-image-gallery-element col-xs-6 col-sm-4 col-md-3">
-  <a class= "dh-image-gallery-image" href="<%= content.ingredient.url %>"
+  <a class= "dh-image-gallery-image" href="<%= ingredient.value&.url %>"
     data-toggle="lightbox" data-always_show_close="false">
-    <%= Alchemy::EssencePictureView.new(
-      content,
-         { image_size: '170x170', crop: true },
-          { class: 'dh-image-gallery-image' }
+    <%= Alchemy::PictureView.new(
+      ingredient,
+      { image_size: '170x170', crop: true },
+      { class: 'dh-image-gallery-image' }
     ).render %>
   </a>
-
 </div>

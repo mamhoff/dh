@@ -1,7 +1,7 @@
 <% ingredient = image_slider_element.ingredients.first %>
 <div class="item<%= image_slider_element_counter == 0 ? " active" : "" %>">
   <%# Cannot use link_to helper because data attribute won't work %>
-  <a href="<%= image_slider_element.ingredients.first.picture.url %>"
+  <a href="<%= image_slider_element.ingredients.first&.picture&.url %>"
     data-toggle="lightbox" data-always_show_close="false">
     <%= Alchemy::PictureView.new(
       ingredient,
