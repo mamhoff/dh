@@ -1,4 +1,4 @@
-<% cache menu do %>
+<% cache menu, @preview_mode do %>
   <ul class="nav dh-navbar-nav">
     <%= render partial: menu.to_partial_path,
       collection: menu.children.includes(:page, :children),
