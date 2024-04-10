@@ -17,7 +17,7 @@ gem 'rack-cache', :require => 'rack/cache'
 
 gem "alchemy_cms", "~> 7.0.0"
 gem "alchemy-devise", "~> 7.0.0"
-gem "alchemy_i18n"
+gem "alchemy_i18n", "~> 4.0.0"
 
 group :test do
   gem 'rspec-rails'
