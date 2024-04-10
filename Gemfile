@@ -36,3 +36,5 @@ group :development do
   gem "bcrypt_pbkdf"
   gem "listen"
 end
+
+gem "dotenv", "~> 3.1"

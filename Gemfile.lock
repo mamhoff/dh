@@ -176,6 +176,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
+    dotenv (3.1.0)
     dragonfly (1.4.0)
       addressable (~> 2.3)
       multi_json (~> 1.0)
@@ -384,6 +385,7 @@ DEPENDENCIES
   capistrano-alchemy!
   capistrano-uberspace!
   capistrano-yarn
+  dotenv (~> 3.1)
   ed25519
   jsbundling-rails
   listen
