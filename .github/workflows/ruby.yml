@@ -13,9 +13,9 @@ jobs:
         env:
           MYSQL_USER: user
           MYSQL_PASSWORD: password
-          MYSQL_DATABASE: douglas_henderson_test
+          MYSQL_DATABASE: charlotte_auer_test
           MYSQL_ROOT_PASSWORD: password
-        options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
+        options: --health-cmd="mariadb-admin ping" --health-interval=10s --health-timeout=5s --health-retries=5
     steps:
     - uses: actions/checkout@v1
 
@@ -30,7 +30,7 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: "3.0"
+        ruby-version: "3.2"
     - uses: webfactory/ssh-agent@v0.7.0
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -67,12 +67,9 @@ jobs:
         DB_USER: user
         DB_PASSWORD: password
         DB_PORT: ${{ job.services.mariadb.ports[3306] }}
-        RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
       run: |
-        cp config/database.yml.example config/database.yml
-        bundle exec rake db:test:prepare
-        bundle exec rspec
+        bundle exec rake
     - name: deploy_production
-      if: github.ref == 'refs/heads/production'
+      if: github.ref == 'refs/heads/main'
       run: |
         bundle exec cap production deploy
