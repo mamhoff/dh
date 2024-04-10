@@ -3,3 +3,4 @@
 //= link application.css
 //= link alchemy_admin.js
 //= link_tree ../builds
+//= link tinymce/langs/de.js

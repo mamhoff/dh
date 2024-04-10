@@ -21,6 +21,7 @@ Bundler.require(*Rails.groups)
 
 module DouglasHendersonOrg
   class Application < Rails::Application
+    config.i18n.available_locales = [:de, :en]
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 

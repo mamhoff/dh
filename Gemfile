@@ -10,18 +10,14 @@ gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
-gem 'jsbundling-rails'
-
-gem 'pry-rails',   group: :development
-
 gem 'bootstrap-sass'
 gem 'bootswatch-rails' # bootstrap themes ;)
 gem 'puma'
 gem 'rack-cache', :require => 'rack/cache'
 
-gem "alchemy_cms", "~> 7.0.0.pre.a"
-gem "alchemy-devise", "~> 6.1.0"
-gem "alchemy_i18n"
+gem "alchemy_cms", "~> 7.0.0"
+gem "alchemy-devise", "~> 7.0.0"
+gem "alchemy_i18n", "~> 4.0.0"
 
 group :test do
   gem 'rspec-rails'
