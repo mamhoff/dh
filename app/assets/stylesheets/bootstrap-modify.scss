@@ -42,3 +42,12 @@ h3 {
     padding-bottom: 177.77%;
   }
 }
+/* Landscape mode for tablets and desktops */
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+  .embed-responsive {
+    &-9by16 {
+      max-width: 50%;
+      margin: auto;
+    }
+  }
+}
