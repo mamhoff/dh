@@ -2,10 +2,11 @@
 <div class="dh-gallery-item dh-image-gallery-element col-xs-6 col-sm-4 col-md-3">
   <a class= "dh-image-gallery-image" href="<%= ingredient.value&.url %>"
     data-toggle="lightbox" data-always_show_close="false">
-    <%= Alchemy::PictureView.new(
-      ingredient,
-      { image_size: '170x170', crop: true },
-      { class: 'dh-image-gallery-image' }
-    ).render %>
+    <%= render Alchemy::Ingredients::PictureView.new(
+          ingredient,
+          picture_options: { size: '170x170',  crop: true },
+          html_options: { class: 'dh-image-gallery-image'}
+        )
+     %>
   </a>
 </div>
