@@ -41,6 +41,9 @@ h3 {
   &-9by16 {
     padding-bottom: 177.77%;
   }
+  &-1by1 {
+    padding-bottom: 100%;
+  }
 }
 /* Landscape mode for tablets and desktops */
 @media only screen and (min-width: 768px) and (orientation: landscape) {
