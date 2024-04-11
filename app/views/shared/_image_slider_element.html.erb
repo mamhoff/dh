@@ -3,10 +3,10 @@
   <%# Cannot use link_to helper because data attribute won't work %>
   <a href="<%= image_slider_element.ingredients.first&.picture&.url %>"
     data-toggle="lightbox" data-always_show_close="false">
-    <%= Alchemy::PictureView.new(
-      ingredient,
-      { size: '800x400' },
-      {}
-    ).render %>
+    <%= render Alchemy::Ingredients::PictureView.new(
+          ingredient,
+          picture_options: { size: '800x400' }
+        )
+     %>
   </a>
 </div>

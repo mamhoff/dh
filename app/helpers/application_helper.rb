@@ -28,13 +28,12 @@ module ApplicationHelper
   def render_work_thumbnail(page)
     image_slider = page.find_elements(only: ['image_slider',
       'image_gallery']).first
-
     if image_slider && image_slider.nested_elements.present?
-      Alchemy::PictureView.new(
+      render Alchemy::Ingredients::PictureView.new(
         image_slider.nested_elements.first.ingredients.first,
-          { size: '170x170', crop: true },
-          { class: 'dh-works-page-thumbnail' }
-      ).render
+          picture_options: { size: '170x170', crop: true },
+          html_options: { class: 'dh-works-page-thumbnail' }
+      )
     else
       image_tag('question_mark.png', alt: 'No preview found')
     end
