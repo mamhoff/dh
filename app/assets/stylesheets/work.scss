@@ -11,7 +11,8 @@
   }
 
   .dh-vimeo-queen {
-    max-width: $dh-screen-width;
+    max-width: 800px; /* Maximum width */
+    margin: 0 auto; /* Centering the container horizontally */
   }
 
   .dh-slider {
