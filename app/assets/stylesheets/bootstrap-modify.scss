@@ -36,3 +36,9 @@ h2 {
 h3 {
   font-weight: bold;
 }
+
+.embed-responsive {
+  &-9by16 {
+    padding-bottom: 177.77%;
+  }
+}

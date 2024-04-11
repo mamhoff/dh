@@ -12,6 +12,14 @@
     type: Html
     validate:
     - presence
+  - role: aspect_ratio
+    type: Select
+    settings:
+      select_values:
+        - ["16:9", "16by9"]
+        - ["4:3", "4by3"]
+        - ["1:1", "1by1"]
+        - ["9:16", "9by16"]
 
 - name: sound
   ingredients:

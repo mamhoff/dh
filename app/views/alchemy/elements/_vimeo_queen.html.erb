@@ -1,10 +1,7 @@
 <%- cache(vimeo_queen) do -%>
-
-  <%# We act on the assumption that videos have an aspect ratio of 16 by 9 %>
-
   <article class="dh-section dh-vimeo-queen">
     <%= element_view_for(vimeo_queen,
-      class: 'vimeo-queen-view embed-responsive embed-responsive-16by9') do |el| -%>
+      class: "vimeo-queen-view embed-responsive embed-responsive-#{vimeo_queen.value_for(:aspect_ratio)}") do |el| -%>
       <%= el.render :vimeo_code %>
     <%- end -%>
   </article>
