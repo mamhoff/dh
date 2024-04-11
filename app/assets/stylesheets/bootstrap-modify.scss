@@ -46,6 +46,7 @@ h3 {
 @media only screen and (min-width: 768px) and (orientation: landscape) {
   .embed-responsive {
     &-9by16 {
+      padding-bottom: calc(177% / 2);
       max-width: 50%;
       margin: auto;
     }
