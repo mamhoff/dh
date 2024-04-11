@@ -9,7 +9,7 @@ server 'brewington.uberspace.de', user: 'hexkreis', roles: %w{app db web}
 
 # You have to set where to store the code, the default /var/www/my_app_name won't work on uberspace
 set :deploy_to, '/home/hexkreis/douglas_henderson'
-set :branch, 'production'
+set :branch, 'main'
 
 # role-based syntax
 # ==================
