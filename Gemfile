@@ -15,9 +15,9 @@ gem 'bootswatch-rails' # bootstrap themes ;)
 gem 'puma'
 gem 'rack-cache', :require => 'rack/cache'
 
-gem "alchemy_cms", "~> 7.0.0"
-gem "alchemy-devise", "~> 7.0.0"
-gem "alchemy_i18n", "~> 4.0.0"
+gem "alchemy_cms", "~> 7.1.0"
+gem "alchemy-devise", "~> 7.1.0"
+gem "alchemy_i18n", "~> 4.1.0"
 
 group :test do
   gem 'rspec-rails'
