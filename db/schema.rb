@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_10_141714) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_30_113716) do
   create_table "alchemy_attachments", id: :integer, charset: "utf8", collation: "utf8_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.string "file_name"
