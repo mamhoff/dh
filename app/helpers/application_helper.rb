@@ -4,7 +4,7 @@ module ApplicationHelper
   # Get all years in an array of strings, in descending order
   def get_years
     Alchemy::Ingredient
-      .where(type: "Alchemy::Ingredients::Select")
+      .where(role: "year", type: "Alchemy::Ingredients::Select")
       .joins(element: :page)
       .merge(Alchemy::Page.published)
       .order(value: :desc)
@@ -18,7 +18,7 @@ module ApplicationHelper
       .joins(elements: :ingredients)
       .includes(elements: :ingredients)
       .reorder(:lft)
-      .where(alchemy_ingredients: { type: "Alchemy::Ingredients::Select" })
+      .where(alchemy_ingredients: { role: "year", type: "Alchemy::Ingredients::Select" })
       .where('alchemy_ingredients.value = ?', year)
       .distinct
   end
